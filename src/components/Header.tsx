@@ -1,8 +1,8 @@
-"use client"; // Indispensable pour l'interactivité (Menu Mobile)
+"use client";
 
 import { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation"; // Pour savoir sur quelle page on est
+import { usePathname } from "next/navigation"; 
 import { Menu, X, FileText } from "lucide-react";
 
 export default function Header() {
@@ -29,7 +29,7 @@ export default function Header() {
           Paul<span className="text-cyan-600">.dev</span>
         </Link>
 
-        {/* 2. NAVIGATION DESKTOP (Caché sur mobile) */}
+        {/* 2. NAVIGATION DESKTOP */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
@@ -57,7 +57,7 @@ export default function Header() {
           </Link>
         </nav>
 
-        {/* 3. BOUTON MENU MOBILE (Visible uniquement sur mobile) */}
+        {/* 3. BOUTON MENU MOBILE */}
         <button
           className="md:hidden p-2 text-slate-600 hover:text-slate-900"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
