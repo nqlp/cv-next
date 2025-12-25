@@ -1,6 +1,6 @@
 "use client"; // Indispensable pour l'interactivité (Menu Mobile)
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation"; // Pour savoir sur quelle page on est
 import { Menu, X, FileText } from "lucide-react";
@@ -12,6 +12,7 @@ export default function Header() {
   const navLinks = [
     { name: "Accueil", href: "/" },
     { name: "Projets", href: "/#projects" },
+    { name: "Formation", href: "/#formation" },
     { name: "Expériences", href: "/#experiences" }, 
     { name: "Contact", href: "/contact" },
   ];

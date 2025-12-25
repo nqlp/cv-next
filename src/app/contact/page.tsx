@@ -1,7 +1,5 @@
 "use client";
 
-import Footer from "@/src/components/Footer";
-
 export default function ContactForm() {
     async function handleSubmit(formData: FormData) {
         const firstName = formData.get("firstName");
@@ -42,7 +40,6 @@ export default function ContactForm() {
                     </button>
                 </form>
             </div>
-            <Footer />
         </div>
     )
 }

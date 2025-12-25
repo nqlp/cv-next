@@ -1,12 +1,11 @@
 "use client";
 
-import ProjectCard from "@/src/components/ProjectCard";
-import Footer from "../components/Footer";
+import ProjectCard, { ProjectType } from "@/src/components/ProjectCard";
 import Link from "next/link";
 import Image from "next/image";
 import { Mail, MapPin } from "lucide-react";
 import { FaGithub, FaLinkedin, FaPhone } from "react-icons/fa";
-import Education from "../components/Education";
+import Formation from "../components/Formation";
 import { motion } from "framer-motion";
 
 const containerVariants = {
@@ -50,9 +49,11 @@ export default function Home() {
           </p>
 
           <div className="flex items-center justify-center md:justify-start gap-4 pt-2">
-            <button className="bg-cyan-600 text-white px-8 py-3 rounded-full font-bold hover:bg-cyan-700 transition shadow-lg hover:shadow-cyan-500/25 transform hover:scale-105 duration-200">
-              Voir mon CV
-            </button>
+            <Link href="/Paul_Nguyen_CV.pdf" target="_blank" rel="noopener noreferrer">
+              <button className="bg-cyan-600 text-white px-8 py-3 rounded-full font-bold hover:bg-cyan-700 transition shadow-lg hover:shadow-cyan-500/25 transform hover:scale-105 duration-200 cursor-pointer">
+                Voir mon CV
+              </button>
+            </Link>
             <Link href="/contact" className="text-cyan-600 font-bold hover:underline underline-offset-4 px-4">
               Me contacter
             </Link>
@@ -107,8 +108,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-
-      <Education />
+      <Formation />
 
       <section id="experiences" className="py-16 bg-slate-50 px-6">
         <div className="max-w-5xl mx-auto">
@@ -143,7 +143,7 @@ export default function Home() {
                 <li>Participer aux ateliers de programmation.</li>
                 <div className="flex justify-end mt-2">
                   <a href="https://github.com/ClubCedille" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-bold hover:underline underline-offset-2 flex items-center gap-2">
-                    <FaGithub size={25} /> 
+                    <FaGithub size={25} />
                   </a>
                 </div>
               </ul>
@@ -192,10 +192,10 @@ export default function Home() {
             <ProjectCard
               title="Steam Data Analysis"
               description="Analyse de données extraites de Steam avec Python et Pandas pour identifier les tendances de jeux."
-              date="Automne 2024"
-              tags={["Python", "Pandas"]}
+              date="Automne 2025"
+              tags={["Python", "Pandas", "SQL"]}
               link="https://github.com/nqlp/steam-data-analysis"
-              context="Personnel"
+              context={ProjectType.Personnel}
             />
           </motion.div>
 
@@ -205,7 +205,7 @@ export default function Home() {
               description="Refonte complète de mon CV en utilisant les dernières technologies web."
               date="Décembre 2025"
               tags={["Next.js", "TypeScript", "TailwindCSS", "React"]}
-              context="Personnel"
+              context={ProjectType.Personnel}
             />
           </motion.div>
 
@@ -215,13 +215,22 @@ export default function Home() {
               description="Application web pour faciliter la location de vélos entre particuliers à Montréal."
               date="Été 2025"
               tags={["React", "TypeScript", "TailwindCSS", "Vite"]}
-              context="Académique"
+              context={ProjectType.Academique}
+            />
+          </motion.div>
+
+          <motion.div variants={itemVariants} className="h-full">
+            <ProjectCard
+              title="Nomàuclature"
+              description="Portfolio collaboratif."
+              date="Hiver 2025"
+              tags={["React", "Vite", "TypeScript"]}
+              link="https://github.com/Orchydae/nomauclature"
+              context={ProjectType.Personnel}
             />
           </motion.div>
         </motion.div>
       </section>
-
-      <Footer />
     </div>
   );
 }

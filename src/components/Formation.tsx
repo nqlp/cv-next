@@ -1,7 +1,7 @@
-"use client"; // 👈 Obligatoire pour Framer Motion
+"use client";
 
 import { GraduationCap, BookOpen } from "lucide-react";
-import { motion } from "framer-motion"; // 👈 Import de la librairie
+import { motion } from "framer-motion";
 
 const educationData = [
     {
@@ -37,7 +37,7 @@ const itemVariants = {
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
-export default function Education() {
+export default function Formation() {
     return (
         <section id="formation" className="py-16 max-w-5xl mx-auto px-6">
             <motion.h2
@@ -55,12 +55,12 @@ export default function Education() {
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }} 
+                viewport={{ once: true, amount: 0.2 }}
             >
                 {educationData.map((item, index) => (
                     <motion.div
                         key={index}
-                        variants={itemVariants} 
+                        variants={itemVariants}
                         className={`bg-white p-6 rounded-2xl shadow-sm border-t-4 ${item.color} hover:shadow-md transition-shadow`}
                     >
                         <div className="flex items-center gap-4 mb-4">

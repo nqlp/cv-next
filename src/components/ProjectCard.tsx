@@ -23,13 +23,18 @@ const techConfig: Record<string, { icon: IconType; color: string }> = {
     "Vite": { icon: SiVite, color: "text-[#646CFF]" }, // Bleu Vite
 };
 
+export enum ProjectType {
+    Personnel = "Personnel",
+    Academique = "Académique",
+}
+
 interface ProjectProps {
     title: string;
     description: string;
     date: string;
     tags: string[];
     link?: string;
-    context: "Personnel" | "Académique";
+    context: ProjectType;
 }
 
 export default function ProjectCard({ title, description, date, tags, link, context }: ProjectProps) {
