@@ -1,9 +1,12 @@
 "use client";
 
 import ProjectCard, { ProjectType } from "@/src/components/ProjectCard";
+import TechBadge from "@/src/components/ui/TechBadge";
+import { skillCategories } from "@/src/data/skills";
+import { projects } from "@/src/data/projects";
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, MapPin } from "lucide-react";
+import { Mail, MapPin, Download, ChevronRight } from "lucide-react";
 import { FaGithub, FaLinkedin, FaPhone } from "react-icons/fa";
 import Formation from "../components/Formation";
 import { motion } from "framer-motion";
@@ -12,15 +15,13 @@ const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
+    transition: { staggerChildren: 0.2 },
   },
 };
 
 const itemVariants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] as const } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
 const titleVariants = {
@@ -30,32 +31,40 @@ const titleVariants = {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans overflow-x-hidden">
+    <div className="min-h-screen bg-white text-slate-900 font-sans overflow-x-hidden selection:bg-cyan-100 selection:text-cyan-900">
 
-      {/* HERO */}
-      <section className="py-24 px-6 max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+      {/* 1. HERO SECTION */}
+      <section className="pt-32 pb-20 px-6 max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-16">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="flex-1 text-center md:text-left space-y-6"
+          className="flex-1 text-center md:text-left space-y-8"
         >
-          <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight">
-            Salut, je m'appelle <br />
-            <span className="text-cyan-600">Paul Nguyen</span>
-          </h1>
-          <p className="text-lg md:text-xl text-slate-600 max-w-lg mx-auto md:mx-0">
-            Étudiant en Génie Logiciel à l'ÉTS. Je conçois des applications web robustes.
+          <div className="space-y-4">
+            <h1 className="text-5xl md:text-7xl font-extrabold text-slate-900 leading-tight">
+              Salut, je suis <br />
+              <span className="bg-linear-to-r from-blue-700 to-cyan-500 bg-clip-text text-transparent">
+                Paul Nguyen
+              </span>
+            </h1>
+          </div>
+
+          <p className="text-lg md:text-xl text-slate-600 max-w-lg mx-auto md:mx-0 leading-relaxed">
+            Étudiant en <span className="font-semibold text-slate-900">Génie Logiciel à l'ÉTS</span>.
+            Passionné par l'architecture robuste et l'expérience utilisateur fluide.
           </p>
 
-          <div className="flex items-center justify-center md:justify-start gap-4 pt-2">
-            <Link href="/Paul_Nguyen_CV.pdf" target="_blank" rel="noopener noreferrer">
-              <button className="bg-cyan-600 text-white px-8 py-3 rounded-full font-bold hover:bg-cyan-700 transition shadow-lg hover:shadow-cyan-500/25 transform hover:scale-105 duration-200 cursor-pointer">
-                Voir mon CV
+          <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 pt-4">
+            <Link href="/Paul_Nguyen_CV.pdf" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <button className="w-full sm:w-auto flex items-center justify-center gap-2 bg-slate-900 text-white px-8 py-4 rounded-full font-bold hover:bg-blue-700 transition-all shadow-xl hover:shadow-blue-900/20 hover:-translate-y-1 cursor-pointer">
+                <Download size={20} />
+                Télécharger CV
               </button>
             </Link>
-            <Link href="/contact" className="text-cyan-600 font-bold hover:underline underline-offset-4 px-4">
+            <Link href="/contact" className="w-full sm:w-auto group flex items-center justify-center gap-2 text-slate-700 font-bold px-8 py-4 rounded-full border border-slate-200 hover:border-cyan-500 hover:text-cyan-600 transition-all bg-white cursor-pointer">
               Me contacter
+              <ChevronRight size={18} className="transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
         </motion.div>
@@ -65,44 +74,39 @@ export default function Home() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col items-center gap-6 shrink-0 relative"
+          className="flex flex-col items-center gap-8 shrink-0 relative"
         >
-          {/* AVATAR */}
-          <div className="relative z-10">
-            <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-2xl bg-cyan-50 relative">
+          <div className="relative z-10 group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-2xl bg-slate-100">
               <Image
                 src="/caricature.jpg"
                 alt="Portrait de Paul Nguyen"
                 fill
-                className="object-cover"
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
                 priority
               />
             </div>
-            <div className="absolute top-10 right-10 w-64 h-64 bg-cyan-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 -z-10 animate-blob"></div>
           </div>
 
-          <div className="flex items-center gap-4 bg-white p-3 rounded-full shadow-sm border border-slate-100">
-            {/* GitHub */}
-            <a href="https://github.com/nqlp" target="_blank" className="p-2 text-slate-600 hover:text-black hover:bg-slate-50 rounded-full transition-all hover:-translate-y-1" title="GitHub">
-              <FaGithub size={24} />
+          <div className="flex items-center gap-2 bg-white p-2 pr-6 rounded-full shadow-lg border border-slate-100/50 backdrop-blur-sm">
+            <a href="https://github.com/nqlp" target="_blank" className="p-3 text-slate-500 hover:text-white hover:bg-slate-900 rounded-full transition-all" title="GitHub">
+              <FaGithub size={22} />
             </a>
-            {/* LinkedIn */}
-            <a href="https://www.linkedin.com/in/nqlpaul/" className="p-2 text-slate-600 hover:text-[#0077b5] hover:bg-slate-50 rounded-full transition-all hover:-translate-y-1" title="LinkedIn">
-              <FaLinkedin size={24} />
+            <a href="https://www.linkedin.com/in/nqlpaul/" className="p-3 text-slate-500 hover:text-white hover:bg-[#0077b5] rounded-full transition-all" title="LinkedIn">
+              <FaLinkedin size={22} />
             </a>
-            {/* Email */}
-            <a href="mailto:quang-long-paul.nguyen.1@etsmtl.ca" className="p-2 text-slate-600 hover:text-cyan-600 hover:bg-slate-50 rounded-full transition-all hover:-translate-y-1" title="Courriel">
-              <Mail size={24} />
+            <a href="mailto:quang-long-paul.nguyen.1@etsmtl.ca" className="p-3 text-slate-500 hover:text-white hover:bg-cyan-600 rounded-full transition-all" title="Envoyer un courriel">
+              <Mail size={22} />
             </a>
-            {/* Phone */}
-            <a href="tel:+5149127740" className="p-2 text-slate-600 hover:text-green-600 hover:bg-slate-50 rounded-full transition-all hover:-translate-y-1" title="Cellulaire">
-              <FaPhone size={20} />
+
+            <a href="5149127740" className="p-3 text-slate-500 hover:text-white hover:bg-cyan-600 rounded-full transition-all" title="Appeler">
+              <FaPhone size={22} />
             </a>
-            {/* Separateur */}
-            <div className="w-px h-6 bg-slate-200 mx-1"></div>
-            <div className="flex items-center gap-2 px-2 text-slate-500 text-sm font-medium">
-              <MapPin size={16} />
-              <span>Montreal, QC</span>
+
+            <div className="w-px h-8 bg-slate-200 mx-2"></div>
+            <div className="flex flex-col text-xs font-medium text-slate-500">
+              <span className="flex items-center"><MapPin size={12} className="text-cyan-500" /> Montréal, Québec</span>
             </div>
           </div>
         </motion.div>
@@ -110,15 +114,17 @@ export default function Home() {
 
       <Formation />
 
-      <section id="experiences" className="py-16 bg-slate-50 px-6">
-        <div className="max-w-5xl mx-auto">
+      {/* 3. EXPERIENCES SECTION */}
+      <section id="experiences" className="py-24 bg-white px-6">
+        <div className="max-w-6xl mx-auto">
           <motion.h2
             variants={titleVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="text-3xl font-bold mb-10 border-b-4 border-blue-600 w-fit"
+            className="text-3xl font-extrabold mb-12 text-slate-900 flex items-center gap-3"
           >
+            <span className="bg-blue-600 w-2 h-8 rounded-full"></span>
             Expériences
           </motion.h2>
 
@@ -130,106 +136,120 @@ export default function Home() {
             viewport={{ once: true, amount: 0.2 }}
           >
             {/* Club Cédille */}
-            <motion.div variants={itemVariants} className="bg-white p-6 rounded-xl shadow-sm border-l-4 border-blue-600 hover:shadow-md transition-shadow">
-              <div className="flex justify-between items-start">
-                <h3 className="text-xl font-bold text-blue-800">Club Cédille — ÉTS</h3>
-                <span className="text-sm font-semibold bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Automne 2025</span>
-              </div>
-              <p className="font-medium mt-1">Membre (Apprentissage DevOps)</p>
-
-              <ul className="mt-3 list-disc list-inside text-slate-600 space-y-1">
-                <li>Approfondir mes connaissances en DevOps et appliquer les bonnes pratiques dans un environnement collaboratif.</li>
-                <li>Participer aux réunions hebdomadaires.</li>
-                <li>Participer aux ateliers de programmation.</li>
-                <div className="flex justify-end mt-2">
-                  <a href="https://github.com/ClubCedille" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-bold hover:underline underline-offset-2 flex items-center gap-2">
-                    <FaGithub size={25} />
-                  </a>
+            <motion.div variants={itemVariants} className="group bg-white p-8 rounded-2xl shadow-sm border border-slate-100 border-l-4 border-l-blue-600 hover:shadow-xl transition-all hover:border-l-blue-500">
+              <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-4">
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900 group-hover:text-blue-700 transition-colors">Club Cédille — ÉTS</h3>
+                  <p className="font-medium text-slate-500">Membre (Apprentissage DevOps)</p>
                 </div>
+                <span className="text-sm font-bold bg-blue-50 text-blue-700 px-4 py-2 rounded-full self-start">Automne 2025</span>
+              </div>
+
+              <ul className="space-y-3">
+                {["Approfondir mes connaissances en DevOps et CI/CD.", "Collaborer sur des projets open-source.", "Participer aux ateliers techniques."].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-slate-600">
+                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0"></span>
+                    {item}
+                  </li>
+                ))}
               </ul>
             </motion.div>
 
             {/* Stage SPC */}
-            <motion.div variants={itemVariants} className="bg-white p-6 rounded-xl shadow-sm border-l-4 border-red-500 hover:shadow-md transition-shadow">
-              <div className="flex justify-between items-start">
-                <h3 className="text-xl font-bold">Services partagés Canada (SPC)</h3>
-                <span className="text-sm font-semibold bg-slate-100 px-3 py-1 rounded-full">Hiver 2024</span>
+            <motion.div variants={itemVariants} className="group bg-white p-8 rounded-2xl shadow-sm border border-slate-100 border-l-4 border-l-slate-400 hover:shadow-xl transition-all">
+              <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-4">
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900">Services partagés Canada (SPC)</h3>
+                  <p className="font-medium text-slate-500">Stagiaire Analyste TI</p>
+                </div>
+                <span className="text-sm font-bold bg-slate-100 text-slate-600 px-4 py-2 rounded-full self-start">Hiver 2024</span>
               </div>
-              <p className="font-medium mt-1">Stagiaire Analyste TI</p>
-              <ul className="mt-3 list-disc list-inside text-slate-600 space-y-1">
-                <li>Traduire bidirectionnellement des documents techniques et administratifs entre l'anglais et le français.</li>
-                <li>Gérer la boite de courriel partagée, incluant le tri et la priorisation des demandes.</li>
-                <li>Effectuer la mise à jour des fichiers Excel.</li>
-                <li>Exécuter des processus d'assurance qualité pour valider la conformité des documents avant diffusion.</li>
-                <li>Créer des gabarits standardisés pour questionnaires permettant une collecte de données uniforme.</li>
-                <li>Produire des graphiques et visualisations de données avec Excel pour tableaux de bords.</li>
+
+              <ul className="space-y-3">
+                {["Traduire des documents techniques.", "Gestion et priorisation des demandes courriel.", "Création de tableaux de bord Excel."].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-slate-600">
+                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0"></span>
+                    {item}
+                  </li>
+                ))}
               </ul>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* SECTION PROJETS PERSO */}
-      <section id="projects" className="py-16 max-w-5xl mx-auto px-6">
-        <motion.h2
-          variants={titleVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="text-3xl font-bold mb-10 border-b-4 border-blue-600 w-fit"
-        >
-          Mes Projets
-        </motion.h2>
+      {/* COMPÉTENCES */}
+      <section className="py-24 bg-white px-6">
+        <div className="max-w-6xl mx-auto">
+          <motion.h2
+            variants={titleVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-3xl font-extrabold mb-12 text-slate-900 flex items-center gap-3"
+          >
+            <span className="bg-cyan-600 w-2 h-8 rounded-full"></span>
+            Boîte à outils
+          </motion.h2>
 
-        <motion.div
-          className="grid md:grid-cols-2 gap-6"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-        >
-          <motion.div variants={itemVariants} className="h-full">
-            <ProjectCard
-              title="Steam Data Analysis"
-              description="Analyse de données extraites de Steam avec Python et Pandas pour identifier les tendances de jeux."
-              date="Automne 2025"
-              tags={["Python", "Pandas", "SQL"]}
-              link="https://github.com/nqlp/steam-data-analysis"
-              context={ProjectType.Personnel}
-            />
+          <motion.div
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            {skillCategories.map((category) => (
+              <motion.div key={category.title} variants={itemVariants} className="space-y-4">
+                <h3 className="font-bold text-slate-900 flex items-center gap-2">
+                  <span className={category.iconColor}>{category.icon}</span> {category.title}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {category.skills.map(skill => (
+                    <TechBadge key={skill} name={skill} />
+                  ))}
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
+        </div>
+      </section>
 
-          <motion.div variants={itemVariants} className="h-full">
-            <ProjectCard
-              title="Portfolio Next.js"
-              description="Refonte complète de mon CV en utilisant les dernières technologies web."
-              date="Décembre 2025"
-              tags={["Next.js", "TypeScript", "TailwindCSS", "React"]}
-              context={ProjectType.Personnel}
-            />
-          </motion.div>
+      {/* PROJETS PERSO */}
+      <section id="projects" className="py-24 bg-slate-50 px-6 border-t border-slate-200">
+        <div className="max-w-6xl mx-auto">
+          <motion.h2
+            variants={titleVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-3xl font-extrabold mb-12 text-slate-900 flex items-center gap-3"
+          >
+            <span className="bg-cyan-600 w-2 h-8 rounded-full"></span>
+            Mes Projets
+          </motion.h2>
 
-          <motion.div variants={itemVariants} className="h-full">
-            <ProjectCard
-              title="VéloFacile"
-              description="Application web pour faciliter la location de vélos entre particuliers à Montréal."
-              date="Été 2025"
-              tags={["React", "TypeScript", "TailwindCSS", "Vite"]}
-              context={ProjectType.Academique}
-            />
+          <motion.div
+            className="grid md:grid-cols-2 lg:grid-cols-2 gap-8"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+          >
+            {projects.map((project) => (
+              <motion.div key={project.title} variants={itemVariants} className="h-full">
+                <ProjectCard
+                  title={project.title}
+                  description={project.description}
+                  date={project.date}
+                  tags={project.tags}
+                  link={project.link}
+                  context={project.context}
+                />
+              </motion.div>
+            ))}
           </motion.div>
-
-          <motion.div variants={itemVariants} className="h-full">
-            <ProjectCard
-              title="Nomàuclature"
-              description="Portfolio collaboratif."
-              date="Hiver 2025"
-              tags={["React", "Vite", "TypeScript"]}
-              link="https://github.com/Orchydae/nomauclature"
-              context={ProjectType.Personnel}
-            />
-          </motion.div>
-        </motion.div>
+        </div>
       </section>
     </div>
   );

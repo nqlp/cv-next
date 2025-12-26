@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation"; 
+import { usePathname } from "next/navigation";
 import { Menu, X, FileText } from "lucide-react";
 
 export default function Header() {
@@ -13,18 +13,18 @@ export default function Header() {
     { name: "Accueil", href: "/" },
     { name: "Projets", href: "/#projects" },
     { name: "Formation", href: "/#formation" },
-    { name: "Expériences", href: "/#experiences" }, 
+    { name: "Expériences", href: "/#experiences" },
     { name: "Contact", href: "/contact" },
   ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        
-        <Link 
-            href="/" 
-            className="text-xl font-bold tracking-tight text-slate-900 transition-colors hover:text-cyan-600"
-            onClick={() => setIsMobileMenuOpen(false)}
+
+        <Link
+          href="/"
+          className="text-xl font-bold tracking-tight text-slate-900 transition-colors hover:text-cyan-600"
+          onClick={() => setIsMobileMenuOpen(false)}
         >
           Paul<span className="text-cyan-600">.dev</span>
         </Link>
@@ -37,9 +37,8 @@ export default function Header() {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-cyan-600 ${
-                  isActive ? "text-cyan-600" : "text-slate-600"
-                }`}
+                className={`text-sm font-medium transition-colors hover:text-cyan-600 ${isActive ? "text-cyan-600" : "text-slate-600"
+                  }`}
               >
                 {link.name}
               </Link>
@@ -50,7 +49,7 @@ export default function Header() {
             href="/Paul_Nguyen_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-full bg-slate-900 px-4 py-2 text-sm font-bold text-white transition hover:bg-slate-700"
+            className="flex items-center gap-2 rounded-full bg-cyan-600 px-4 py-2 text-sm font-bold text-white transition hover:bg-cyan-700"
           >
             <FileText size={16} />
             CV
@@ -75,7 +74,7 @@ export default function Header() {
               key={link.name}
               href={link.href}
               className="text-lg font-medium text-slate-700 hover:text-cyan-600 py-2"
-              onClick={() => setIsMobileMenuOpen(false)} 
+              onClick={() => setIsMobileMenuOpen(false)}
             >
               {link.name}
             </Link>
