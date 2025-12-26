@@ -23,4 +23,10 @@ export const skillCategories = [
         iconColor: "text-cyan-600",
         skills: ["MongoDB", "PostgreSQL", "Oracle SQL", "Pandas", "Matplotlib"],
     },
+    {
+        title: "Autres",
+        icon: "🔧",
+        iconColor: "text-green-600",
+        skills: ["Microsoft Office"]
+    }
 ];

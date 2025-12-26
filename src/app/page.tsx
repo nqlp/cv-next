@@ -56,11 +56,13 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 pt-4">
-            <Link href="/Paul_Nguyen_CV.pdf" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-              <button className="w-full sm:w-auto flex items-center justify-center gap-2 bg-slate-900 text-white px-8 py-4 rounded-full font-bold hover:bg-blue-700 transition-all shadow-xl hover:shadow-blue-900/20 hover:-translate-y-1 cursor-pointer">
-                <Download size={20} />
-                Télécharger CV
-              </button>
+            <Link
+              href="/Paul_Nguyen_CV.pdf"
+              target="_blank"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-slate-900 text-white px-8 py-4 rounded-full font-bold hover:bg-blue-700 transition-all shadow-xl hover:-translate-y-1"
+            >
+              <Download size={20} />
+              Télécharger CV
             </Link>
             <Link href="/contact" className="w-full sm:w-auto group flex items-center justify-center gap-2 text-slate-700 font-bold px-8 py-4 rounded-full border border-slate-200 hover:border-cyan-500 hover:text-cyan-600 transition-all bg-white cursor-pointer">
               Me contacter
@@ -77,7 +79,7 @@ export default function Home() {
           className="flex flex-col items-center gap-8 shrink-0 relative"
         >
           <div className="relative z-10 group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+            <div className="absolute -inset-1 bg-linear-to-r from-blue-600 to-cyan-500 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
             <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-2xl bg-slate-100">
               <Image
                 src="/caricature.jpg"
@@ -90,17 +92,29 @@ export default function Home() {
           </div>
 
           <div className="flex items-center gap-2 bg-white p-2 pr-6 rounded-full shadow-lg border border-slate-100/50 backdrop-blur-sm">
-            <a href="https://github.com/nqlp" target="_blank" className="p-3 text-slate-500 hover:text-white hover:bg-slate-900 rounded-full transition-all" title="GitHub">
+            <a
+              href="https://github.com/nqlp"
+              target="_blank" className="p-3 text-slate-500 hover:text-white hover:bg-slate-900 rounded-full transition-all"
+              title="GitHub">
               <FaGithub size={22} />
             </a>
-            <a href="https://www.linkedin.com/in/nqlpaul/" className="p-3 text-slate-500 hover:text-white hover:bg-[#0077b5] rounded-full transition-all" title="LinkedIn">
+            <a
+              href="https://www.linkedin.com/in/nqlpaul/"
+              className="p-3 text-slate-500 hover:text-white hover:bg-[#0077b5] rounded-full transition-all"
+              title="LinkedIn">
               <FaLinkedin size={22} />
             </a>
-            <a href="mailto:quang-long-paul.nguyen.1@etsmtl.ca" className="p-3 text-slate-500 hover:text-white hover:bg-cyan-600 rounded-full transition-all" title="Envoyer un courriel">
+            <a
+              href="mailto:quang-long-paul.nguyen.1@etsmtl.ca"
+              className="p-3 text-slate-500 hover:text-white hover:bg-cyan-600 rounded-full transition-all"
+              title="Envoyer un courriel">
               <Mail size={22} />
             </a>
 
-            <a href="5149127740" className="p-3 text-slate-500 hover:text-white hover:bg-cyan-600 rounded-full transition-all" title="Appeler">
+            <a
+              href="5149127740"
+              className="p-3 text-slate-500 hover:text-white hover:bg-cyan-600 rounded-full transition-all"
+              title="Appeler">
               <FaPhone size={22} />
             </a>
 
@@ -136,37 +150,58 @@ export default function Home() {
             viewport={{ once: true, amount: 0.2 }}
           >
             {/* Club Cédille */}
-            <motion.div variants={itemVariants} className="group bg-white p-8 rounded-2xl shadow-sm border border-slate-100 border-l-4 border-l-blue-600 hover:shadow-xl transition-all hover:border-l-blue-500">
-              <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-4">
+            <motion.div
+              variants={itemVariants}
+              className="group bg-white p-8 rounded-2xl shadow-sm border
+              border-slate-100 border-l-4
+              border-l-blue-600 hover:shadow-xl transition-all
+              hover:border-l-blue-500">
+              <div
+                className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-4">
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 group-hover:text-blue-700 transition-colors">Club Cédille — ÉTS</h3>
+                  <h3
+                    className="text-xl font-bold
+                  text-slate-900
+                  group-hover:text-blue-700 transition-colors">Club Cédille — ÉTS</h3>
                   <p className="font-medium text-slate-500">Membre (Apprentissage DevOps)</p>
                 </div>
-                <span className="text-sm font-bold bg-blue-50 text-blue-700 px-4 py-2 rounded-full self-start">Automne 2025</span>
+                <span className="text-sm font-bold
+                bg-blue-50 
+                text-blue-700 px-4 py-2 rounded-full self-start">Automne 2025</span>
               </div>
 
               <ul className="space-y-3">
-                {["Approfondir mes connaissances en DevOps et CI/CD.", "Collaborer sur des projets open-source.", "Participer aux ateliers techniques."].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-slate-600">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0"></span>
-                    {item}
-                  </li>
-                ))}
+                {["Approfondir mes connaissances en DevOps et CI/CD.",
+                  "Collaborer sur des projets open-source.",
+                  "Participer aux ateliers techniques."].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3 text-slate-600">
+                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0"></span>
+                      {item}
+                    </li>
+                  ))}
               </ul>
             </motion.div>
 
             {/* Stage SPC */}
-            <motion.div variants={itemVariants} className="group bg-white p-8 rounded-2xl shadow-sm border border-slate-100 border-l-4 border-l-slate-400 hover:shadow-xl transition-all">
+            <motion.div 
+              variants={itemVariants} 
+              className="group bg-white p-8 rounded-2xl shadow-sm border
+              border-slate-100 border-l-4
+              border-l-slate-400 hover:shadow-xl transition-all">
               <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-4">
                 <div>
                   <h3 className="text-xl font-bold text-slate-900">Services partagés Canada (SPC)</h3>
                   <p className="font-medium text-slate-500">Stagiaire Analyste TI</p>
                 </div>
-                <span className="text-sm font-bold bg-slate-100 text-slate-600 px-4 py-2 rounded-full self-start">Hiver 2024</span>
+                <span className="text-sm font-bold
+                bg-slate-100
+                text-slate-600 px-4 py-2 rounded-full self-start">Hiver 2024</span>
               </div>
 
               <ul className="space-y-3">
-                {["Traduire des documents techniques.", "Gestion et priorisation des demandes courriel.", "Création de tableaux de bord Excel."].map((item, i) => (
+                {["Traduire des documents techniques.", 
+                  "Gestion et priorisation des demandes courriel.", 
+                  "Création de tableaux de bord Excel."].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-slate-600">
                     <span className="mt-2 w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0"></span>
                     {item}
@@ -189,7 +224,7 @@ export default function Home() {
             className="text-3xl font-extrabold mb-12 text-slate-900 flex items-center gap-3"
           >
             <span className="bg-cyan-600 w-2 h-8 rounded-full"></span>
-            Boîte à outils
+            Boite à outils
           </motion.h2>
 
           <motion.div
