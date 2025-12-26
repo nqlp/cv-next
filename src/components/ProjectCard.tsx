@@ -1,6 +1,6 @@
 import { FaGithub } from "react-icons/fa";
 import TechBadge from "./ui/TechBadge";
-import { ProjectType } from "@/src/data/projects";
+import { ProjectType } from "@/data/projects";
 
 export { ProjectType };
 
