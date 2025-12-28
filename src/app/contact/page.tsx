@@ -24,7 +24,7 @@ export default function ContactForm() {
                     </div>
                 ) : (
                     <form action={formAction} className="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-md">
-                        <h2 className="text-2xl font-bold mb-6 text-cyan-800">Viens discuter!</h2>
+                        <h2 className="flex justify-center  text-2xl font-bold mb-6 text-cyan-800">Viens discuter!</h2>
 
                         <div className="mb-4">
                             <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
@@ -57,8 +57,8 @@ export default function ContactForm() {
                         <button
                             type="submit"
                             disabled={isPending}
-                            className="bg-cyan-600 text-white px-6 py-3 rounded-full font-bold 
-                        hover:bg-cyan-700 transition w-full md:w-auto">
+                            className="bg-cyan-600 text-white px-6 py-3 rounded-full font-bold flex justify-center items-center
+                        hover:bg-cyan-700 transition mx-auto md:w-auto">
                             {isPending ? "Envoi..." : "Envoyer le message"}
                         </button>
 
