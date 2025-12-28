@@ -6,11 +6,12 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/generated/prisma"
+  previewFeatures = ["driverAdapters"]
 }
 
 datasource db {
   provider = "sqlite"
+  url      = "file:./dev.db"
 }
 
 model ContactMessage {

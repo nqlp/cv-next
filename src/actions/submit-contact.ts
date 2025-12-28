@@ -1,6 +1,7 @@
 "use server";
 
 import { z } from "zod";
+import { prisma } from "@/lib/prisma";
 
 const contactSchema = z.object({
     firstName: z.string().min(2, "Le prénom est requis"),
@@ -35,6 +36,7 @@ export async function submitContact(
 
     if (!result.success) {
         const fieldErrors = result.error.flatten().fieldErrors;
+
         return {
             success: false,
             errors: {
@@ -48,7 +50,16 @@ export async function submitContact(
     }
 
     try {
-        console.log("Contact form submitted:", result.data);
+        await prisma.contactMessage.create({
+            data: {
+                firstName: result.data.firstName,
+                lastName: result.data.lastName,
+                email: result.data.email,
+                message: result.data.message,
+            },
+        });
+
+        console.log("Succès DB: Message sauvegardé");
 
         return {
             success: true,
@@ -56,6 +67,8 @@ export async function submitContact(
             message: "Message envoyé avec succès!",
         };
     } catch (error) {
+        console.error("ERREUR DB CRITIQUE:", error);
+
         return {
             success: false,
             errors: {},
