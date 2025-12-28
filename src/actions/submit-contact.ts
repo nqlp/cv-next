@@ -2,10 +2,14 @@
 
 import { z } from "zod";
 import { prisma } from "@/lib/prisma";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY!);
 
 const contactSchema = z.object({
     firstName: z.string().min(2, "Le prénom est requis"),
     lastName: z.string().min(2, "Le nom est requis"),
+    subject: z.string().min(1, "Le sujet est requis"),
     email: z.email("Email invalide"),
     message: z.string().min(1, "Le message est requis"),
 });
@@ -15,6 +19,7 @@ export type ContactState = {
     errors: {
         firstName?: string[];
         lastName?: string[];
+        subject?: string[];
         email?: string[];
         message?: string[];
     };
@@ -28,6 +33,7 @@ export async function submitContact(
     const rawData = {
         firstName: formData.get("firstName"),
         lastName: formData.get("lastName"),
+        subject: formData.get("subject"),
         email: formData.get("email"),
         message: formData.get("message"),
     };
@@ -42,6 +48,7 @@ export async function submitContact(
             errors: {
                 firstName: fieldErrors.firstName,
                 lastName: fieldErrors.lastName,
+                subject: fieldErrors.subject,
                 email: fieldErrors.email,
                 message: fieldErrors.message,
             },
@@ -54,12 +61,28 @@ export async function submitContact(
             data: {
                 firstName: result.data.firstName,
                 lastName: result.data.lastName,
+                subject: result.data.subject,
                 email: result.data.email,
                 message: result.data.message,
             },
         });
 
         console.log("Succès DB: Message sauvegardé");
+
+        await resend.emails.send({
+            from: "onboarding@resend.dev",
+            to: "nqlpaul@gmail.com",
+            replyTo: result.data.email,
+            subject: `Contact: ${result.data.subject}`,
+            html: `
+                <h2>Nouveau message de contact</h2>
+                <p><strong>De:</strong> ${result.data.firstName} ${result.data.lastName}</p>
+                <p><strong>Email:</strong> ${result.data.email}</p>
+                <p><strong>Sujet:</strong> ${result.data.subject}</p>
+                <hr>
+                <p>${result.data.message}</p>
+            `,
+        });
 
         return {
             success: true,

@@ -18,6 +18,7 @@ model ContactMessage {
   id        String @id @default(cuid())
   firstName String
   lastName  String
+  subject   String @default("")
   email     String
   message   String
   createdAt DateTime @default(now())
