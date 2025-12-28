@@ -71,7 +71,7 @@ export async function submitContact(
 
         await resend.emails.send({
             from: "onboarding@resend.dev",
-            to: "nqlpaul@gmail.com",
+            to: process.env.CONTACT_EMAIL!,
             replyTo: result.data.email,
             subject: `Contact: ${result.data.subject}`,
             html: `
