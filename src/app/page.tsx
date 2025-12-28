@@ -1,9 +1,9 @@
 "use client";
 
-import ProjectCard, { ProjectType } from "@/src/components/ProjectCard";
-import TechBadge from "@/src/components/ui/TechBadge";
-import { skillCategories } from "@/src/data/skills";
-import { projects } from "@/src/data/projects";
+import ProjectCard from "../components/ProjectCard";
+import TechBadge from "../components/ui/TechBadge";
+import { skillCategories } from "../data/skills";
+import { projects } from "../data/projects";
 import Link from "next/link";
 import Image from "next/image";
 import { Mail, MapPin, Download, ChevronRight } from "lucide-react";
@@ -112,7 +112,7 @@ export default function Home() {
             </a>
 
             <a
-              href="5149127740"
+              href="tel:+15149127740"
               className="p-3 text-slate-500 hover:text-white hover:bg-cyan-600 rounded-full transition-all"
               title="Appeler">
               <FaPhone size={22} />
