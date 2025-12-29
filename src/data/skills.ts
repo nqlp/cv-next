@@ -27,6 +27,6 @@ export const skillCategories = [
         title: "Autres",
         icon: "🔧",
         iconColor: "text-green-600",
-        skills: ["Microsoft Office"]
+        skills: ["Microsoft Word", "Microsoft Excel", "Microsoft PowerPoint"],
     }
 ];

@@ -22,7 +22,7 @@ import {
     SiHtml5,
 } from "react-icons/si";
 import { IconType } from "react-icons";
-import { FaJava } from "react-icons/fa";
+import { FaJava, FaFileWord, FaFileExcel, FaFilePowerpoint } from "react-icons/fa";
 
 export const techConfig: Record<string, { icon: IconType; color: string }> = {
     "Python": { icon: SiPython, color: "text-[#3776AB]" },
@@ -49,6 +49,9 @@ export const techConfig: Record<string, { icon: IconType; color: string }> = {
     "Java": { icon: FaJava, color: "text-[#007396]" },
     "C": { icon: SiC, color: "text-[#A8B9CC]" },
     "HTML/CSS": { icon: SiHtml5, color: "text-[#E34C26]" },
+    "Microsoft Excel": { icon: FaFileExcel, color: "text-[#217346]" },
+    "Microsoft Word": { icon: FaFileWord, color: "text-[#2B579A]" },
+    "Microsoft PowerPoint": { icon: FaFilePowerpoint, color: "text-[#D24726]" },
 };
 
 interface TechBadgeProps {
