@@ -1,102 +1,58 @@
 "use client";
 
+import { Link, usePathname, useRouter } from "@/i18n/routing";
+import { useLocale } from "next-intl";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Menu, X, FileText } from "lucide-react";
+import LanguageSwitch from "./LanguageSwitch";
 
 export default function Header() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const pathname = usePathname();
-
-  const navLinks = [
-    { name: "Accueil", href: "/" },
-    { name: "Projets", href: "/#projects" },
-    { name: "Formation", href: "/#formation" },
-    { name: "Expériences", href: "/#experiences" },
-    { name: "Contact", href: "/contact" },
-  ];
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const locale = useLocale();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/80 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-
-        {/* LOGO */}
-        <Link
-          href="/"
-          className="text-xl font-bold tracking-tight text-slate-900 transition-colors hover:text-cyan-600"
-          onClick={() => setIsMobileMenuOpen(false)}
-        >
-          Paul<span className="text-cyan-600">.dev</span>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+      <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <Link href="/" className="text-xl font-bold text-slate-900">
+          Paul N.
         </Link>
 
-        {/* NAVIGATION DESKTOP */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => {
-            const isActive = pathname === link.href;
-            return (
-              <Link
-                key={link.name}
-                href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-cyan-600 ${isActive ? "text-cyan-600" : "text-slate-600"
-                  }`}
-              >
-                {link.name}
-              </Link>
-            );
-          })}
-
-          <Link
-            href="/Paul_Nguyen_CV.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-full
-          bg-cyan-600 px-4 py-2 text-sm font-bold text-white transition hover:bg-cyan-700"
-          >
-            <FileText size={16} />
-            CV
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center gap-8">
+          <Link href="/#experiences" className="text-slate-600 hover:text-blue-600 transition-colors">
+            {locale === "fr" ? "Expériences" : "Experience"}
           </Link>
-        </nav>
+          <Link href="/#projects" className="text-slate-600 hover:text-blue-600 transition-colors">
+            {locale === "fr" ? "Projets" : "Projects"}
+          </Link>
+          <Link href="/contact" className="text-slate-600 hover:text-blue-600 transition-colors">
+            Contact
+          </Link>
+          <LanguageSwitch />
+        </div>
 
-        {/* BOUTON MENU MOBILE */}
+        {/* Mobile Menu Button */}
         <button
-          className="md:hidden p-2 text-slate-600 hover:text-slate-900"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label={isMobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="md:hidden p-2 text-slate-600"
         >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
-      </div>
+      </nav>
 
-      {/* MENU MOBILE DÉROULANT */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-16 left-0 w-full h-[calc(100vh-4rem)] 
-        bg-white border-b border-slate-200 shadow-lg p-6 flex flex-col gap-6 z-50 overflow-y-auto">
-          <nav className="flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-lg font-medium
-                text-slate-700 hover:text-cyan-600 py-2 border-b border-slate-100 last:border-0"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.name}
-              </Link>
-            ))}
-          </nav>
-
-          <Link
-            href="/Paul_Nguyen_CV.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex w-full items-center justify-center gap-2 rounded-lg
-            bg-cyan-600 py-3 font-bold text-white active:bg-cyan-700 mt-auto mb-4"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            <FileText size={18} />
-            Télécharger mon CV
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-white border-t border-slate-100 px-6 py-4 space-y-4">
+          <Link href="/#experiences" className="block text-slate-600" onClick={() => setIsMenuOpen(false)}>
+            {locale === "fr" ? "Expériences" : "Experience"}
           </Link>
+          <Link href="/#projects" className="block text-slate-600" onClick={() => setIsMenuOpen(false)}>
+            {locale === "fr" ? "Projets" : "Projects"}
+          </Link>
+          <Link href="/contact" className="block text-slate-600" onClick={() => setIsMenuOpen(false)}>
+            Contact
+          </Link>
+          <LanguageSwitch />
         </div>
       )}
     </header>

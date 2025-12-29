@@ -1,0 +1,37 @@
+{
+    "Hero": {
+        "greeting": "Hi, I'm",
+        "role_prefix": "Student in",
+        "role_highlight": "Software Engineering at ETS",
+        "description": "Passionate about robust architecture and seamless user experience.",
+        "download_cv": "Download CV",
+        "contact_me": "Contact me"
+    },
+    "Formation": {
+        "school_name": "École de technologie supérieure (ÉTS)",
+        "degree": "Bachelor's in Software Engineering",
+        "duration": "2022 - Present",
+        "description": "Focused on building scalable software solutions with a strong foundation in computer science principles."
+    },
+    "Experience": {
+        "title": "Experience",
+        "cedille_title": "Club Cédille — ETS",
+        "cedille_role": "Member (DevOps Learning)",
+        "cedille_date": "Fall 2025",
+        "cedille_task_1": "Deepening knowledge in DevOps and CI/CD.",
+        "cedille_task_2": "Collaborating on open-source projects.",
+        "cedille_task_3": "Participating in technical workshops.",
+        "spc_title": "Shared Services Canada (SSC)",
+        "spc_role": "IT Analyst Intern",
+        "spc_date": "Winter 2024",
+        "spc_task_1": "Translating technical documents.",
+        "spc_task_2": "Managing and prioritizing email requests.",
+        "spc_task_3": "Creating Excel dashboards."
+    },
+    "Skills": {
+        "title": "Toolbox"
+    },
+    "Projects": {
+        "title": "My Projects"
+    }
+}
