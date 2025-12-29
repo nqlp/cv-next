@@ -61,5 +61,21 @@
             "description": "Professional portfolio website for a graphic designer.",
             "date": "Fall 2024"
         }
+    },
+    "Contact": {
+        "title": "Get in Touch",
+        "firstName": "First name",
+        "lastName": "Last name",
+        "firstName_placeholder": "Enter your first name",
+        "lastName_placeholder": "Enter your last name",
+        "email": "Email",
+        "email_placeholder": "Enter your email",
+        "subject": "Subject",
+        "message": "Message",
+        "send": "Send Message",
+        "sending": "Sending...",
+        "success_message": "Your message has been sent successfully! I will get back to you as soon as possible.",
+        "error_message": "There was an error sending your message. Please try again.",
+        "thank_you": "Thank you!"
     }
 }

@@ -1,3 +1,5 @@
+"use client";
+
 import { usePathname, useRouter } from "@/i18n/routing";
 import { useLocale } from "next-intl";
 
@@ -8,7 +10,7 @@ export default function LanguageSwitch() {
 
     const toggleLocale = () => {
         const newLocale = locale === "fr" ? "en" : "fr";
-        router.replace(pathname, { locale: newLocale });
+        router.replace(pathname, { locale: newLocale, scroll: false });
     };
     return (
         <button

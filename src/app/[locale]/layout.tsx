@@ -19,11 +19,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Paul Nguyen | Étudiant en Génie Logiciel @ ÉTS Montréal",
   description: "Portfolio de Paul Nguyen, étudiant à l'ÉTS et développeur passionné par React, Python et le DevOps. Découvrez mes projets et mes expériences en TI.",
-  keywords: ["Paul Nguyen", "ÉTS Montréal", "Génie Logiciel", "Club Cédille"],
+  keywords: ["Paul Nguyen", "ÉTS Montréal", "Génie Logiciel", "Club Cédille", "nqlp"],
   authors: [{ name: "Paul Nguyen" }],
   openGraph: {
     title: "Paul Nguyen - Portfolio",
-    description: "Futur ingénieur logiciel passionné par le développement web et l'analyse de données.",
+    description: "Futur ingénieur logiciel passionné par le développement web et l'architecture logicielle.",
     // url: "https://ton-site.com",
     siteName: "Paul Nguyen Portfolio",
     locale: "fr_CA",

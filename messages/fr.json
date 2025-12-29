@@ -61,5 +61,21 @@
             "description": "Portfolio professionnel pour un graphiste.",
             "date": "Automne 2024"
         }
+    },
+    "Contact": {
+        "title": "Entrons en contact",
+        "firstName": "Prénom",
+        "lastName": "Nom",
+        "firstName_placeholder": "Entrer votre prénom",
+        "lastName_placeholder": "Entrer votre nom",
+        "email": "Courriel",
+        "email_placeholder": "Entrer votre courriel",
+        "subject": "Objet",
+        "message": "Message",
+        "send": "Envoyer le message",
+        "sending": "Envoi en cours...",
+        "success_message": "Votre message a été envoyé avec succès! Je vous répondrai dès que possible.",
+        "error_message": "Une erreur est survenue lors de l'envoi de votre message. Veuillez réessayer plus tard.",
+        "thank_you": "Merci!"
     }
 }
