@@ -32,7 +32,6 @@ const titleVariants = {
 export default function Home() {
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans overflow-x-hidden selection:bg-cyan-100 selection:text-cyan-900">
-
       {/* 1. HERO SECTION */}
       <section className="pt-32 pb-20 px-6 max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-16">
         <motion.div
@@ -183,8 +182,8 @@ export default function Home() {
             </motion.div>
 
             {/* Stage SPC */}
-            <motion.div 
-              variants={itemVariants} 
+            <motion.div
+              variants={itemVariants}
               className="group bg-white p-8 rounded-2xl shadow-sm border
               border-slate-100 border-l-4
               border-l-slate-400 hover:shadow-xl transition-all">
@@ -199,14 +198,14 @@ export default function Home() {
               </div>
 
               <ul className="space-y-3">
-                {["Traduire des documents techniques.", 
-                  "Gestion et priorisation des demandes courriel.", 
+                {["Traduire des documents techniques.",
+                  "Gestion et priorisation des demandes courriel.",
                   "Création de tableaux de bord Excel."].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-slate-600">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0"></span>
-                    {item}
-                  </li>
-                ))}
+                    <li key={i} className="flex items-start gap-3 text-slate-600">
+                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0"></span>
+                      {item}
+                    </li>
+                  ))}
               </ul>
             </motion.div>
           </motion.div>
