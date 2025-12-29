@@ -1,0 +1,65 @@
+{
+    "Hero": {
+        "greeting": "Hi, I'm",
+        "role_prefix": "Student in",
+        "role_highlight": "Software Engineering at ETS",
+        "description": "Passionate about robust architecture and seamless user experience.",
+        "download_cv": "Download CV",
+        "contact_me": "Contact me"
+    },
+    "Formation": {
+        "title": "Education",
+        "ets_school": "École de technologie supérieure (ETS)",
+        "ets_degree": "Bachelor's in Software Engineering",
+        "ets_period": "2022 — Present",
+        "ets_description": "Specialization in software architecture and testing.",
+        "cegep_school": "Cégep de Rosemont",
+        "cegep_degree": "Natural Sciences",
+        "cegep_period": "2017 — 2020",
+        "cegep_description": "Program focused on pure and applied sciences, with a strong foundation in mathematics, physics, and chemistry."
+    },
+    "Location": {
+        "title": "Montreal, Quebec"
+    },
+    "Experience": {
+        "title": "Experience",
+        "cedille_title": "Club Cédille — ETS",
+        "cedille_role": "Member (DevOps Learning)",
+        "cedille_date": "Fall 2025",
+        "cedille_task_1": "Deepening knowledge in DevOps and CI/CD.",
+        "cedille_task_2": "Collaborating on open-source projects.",
+        "cedille_task_3": "Participating in technical workshops.",
+        "spc_title": "Shared Services Canada (SSC)",
+        "spc_role": "IT Analyst Intern",
+        "spc_date": "Winter 2024",
+        "spc_task_1": "Translating technical documents.",
+        "spc_task_2": "Managing and prioritizing email requests.",
+        "spc_task_3": "Creating Excel dashboards."
+    },
+    "Skills": {
+        "title": "Toolbox"
+    },
+    "Projects": {
+        "title": "My Projects",
+        "context": {
+            "personnel": "Personal",
+            "academic": "Academic"
+        },
+        "portfolio": {
+            "description": "Complete revamp of my resume using the latest web technologies.",
+            "date": "December 2025"
+        },
+        "steam": {
+            "description": "Exploring a Steam dataset (prices, genres, ratings) to extract insights about the video game market.",
+            "date": "Fall 2025"
+        },
+        "velofacile": {
+            "description": "Academic project to develop a bike rental management system for a local business.",
+            "date": "Summer 2025"
+        },
+        "nomauclature": {
+            "description": "Professional portfolio website for a graphic designer.",
+            "date": "Fall 2024"
+        }
+    }
+}
