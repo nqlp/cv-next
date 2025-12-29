@@ -1,16 +1,12 @@
 import { FaGithub } from "react-icons/fa";
 import TechBadge from "./ui/TechBadge";
-import { ProjectType } from "@/data/projects";
-
-export { ProjectType };
-
 interface ProjectProps {
     title: string;
     description: string;
     date: string;
     tags: string[];
     link?: string;
-    context: ProjectType;
+    context: string;
 }
 
 export default function ProjectCard({ title, description, date, tags, link, context }: ProjectProps) {

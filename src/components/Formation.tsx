@@ -2,27 +2,7 @@
 
 import { GraduationCap, BookOpen } from "lucide-react";
 import { motion } from "framer-motion";
-
-const educationData = [
-    {
-        school: "École de technologie supérieure (ÉTS)",
-        degree: "Baccalauréat en Génie Logiciel",
-        period: "2022 — Présent",
-        description: "Spécialisation en architecture logicielle et tests.",
-        icon: <GraduationCap className="text-cyan-600" size={24} />,
-        color: "border-cyan-500",
-        bgHover: "group-hover:bg-cyan-50",
-    },
-    {
-        school: "Cégep de Rosemont",
-        degree: "Science de la nature",
-        period: "2017-2020",
-        description: "Formation axée sur les sciences pures et appliquées, avec une solide base en mathématiques, physique et chimie.",
-        icon: <GraduationCap className="text-rose-600" size={24} />,
-        color: "border-rose-500",
-        bgHover: "group-hover:bg-rose-50",
-    },
-];
+import { useTranslations } from "next-intl";
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -40,11 +20,31 @@ const itemVariants = {
 };
 
 export default function Formation() {
+    const t = useTranslations("Formation");
+
+    const educationData = [
+        {
+            school: t("ets_school"),
+            degree: t("ets_degree"),
+            period: t("ets_period"),
+            description: t("ets_description"),
+            icon: <GraduationCap size={32} className="text-cyan-600" />,
+            color: "border-cyan-600",
+            bgHover: "hover:bg-cyan-50",
+        },
+        {
+            school: t("cegep_school"),
+            degree: t("cegep_degree"),
+            period: t("cegep_period"),
+            description: t("cegep_description"),
+            icon: <BookOpen size={32} className="text-pink-600" />,
+            color: "border-purple-600",
+            bgHover: "hover:bg-purple-50",
+        }
+    ]
     return (
         <section id="formation" className="py-24 bg-slate-50 px-6">
-
             <div className="max-w-6xl mx-auto">
-
                 <motion.h2
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -53,7 +53,7 @@ export default function Formation() {
                     className="text-3xl font-extrabold mb-12 text-slate-900 flex items-center gap-3"
                 >
                     <span className="bg-cyan-600 w-2 h-8 rounded-full"></span>
-                    Formation
+                    {t("title")}
                 </motion.h2>
 
                 <motion.div

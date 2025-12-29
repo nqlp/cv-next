@@ -1,37 +1,65 @@
 {
-  "Hero": {
-    "greeting": "Salut, je suis",
-    "role_prefix": "Étudiant en",
-    "role_highlight": "Génie Logiciel à l'ÉTS",
-    "description": "Passionné par l'architecture robuste et l'expérience utilisateur fluide.",
-    "download_cv": "Télécharger CV",
-    "contact_me": "Me contacter"
-  },
-    "Formation": {
-        "school_name": "École de technologie supérieure (ÉTS)",
-        "degree": "Baccalauréat en Génie Logiciel",
-        "duration": "2022 - Présent",
-        "description": "Axé sur la création de solutions logicielles évolutives avec une solide base en principes informatiques."
+    "Hero": {
+        "greeting": "Salut, je suis",
+        "role_prefix": "Étudiant en",
+        "role_highlight": "Génie Logiciel à l'ÉTS",
+        "description": "Passionné par l'architecture robuste et l'expérience utilisateur fluide.",
+        "download_cv": "Télécharger CV",
+        "contact_me": "Me contacter"
     },
-  "Experience": {
-    "title": "Expériences",
-    "cedille_title": "Club Cédille — ÉTS",
-    "cedille_role": "Membre (Apprentissage DevOps)",
-    "cedille_date": "Automne 2025",
-    "cedille_task_1": "Approfondir mes connaissances en DevOps et CI/CD.",
-    "cedille_task_2": "Collaborer sur des projets open-source.",
-    "cedille_task_3": "Participer aux ateliers techniques.",
-    "spc_title": "Services partagés Canada (SPC)",
-    "spc_role": "Stagiaire Analyste TI",
-    "spc_date": "Hiver 2024",
-    "spc_task_1": "Traduire des documents techniques.",
-    "spc_task_2": "Gestion et priorisation des demandes courriel.",
-    "spc_task_3": "Création de tableaux de bord Excel."
-  },
-  "Skills": {
-    "title": "Boite à outils"
-  },
-  "Projects": {
-    "title": "Mes Projets"
-  }
+    "Formation": {
+        "title": "Formation",
+        "ets_school": "École de technologie supérieure (ÉTS)",
+        "ets_degree": "Baccalauréat en Génie Logiciel",
+        "ets_period": "2022 — Présent",
+        "ets_description": "Spécialisation en architecture logicielle et tests.",
+        "cegep_school": "Cégep de Rosemont",
+        "cegep_degree": "Science de la nature",
+        "cegep_period": "2017 — 2020",
+        "cegep_description": "Formation axée sur les sciences pures et appliquées, avec une solide base en mathématiques, physique et chimie."
+    },
+    "Location": {
+        "title": "Montréal, Québec"
+    },
+    "Experience": {
+        "title": "Expériences",
+        "cedille_title": "Club Cédille — ÉTS",
+        "cedille_role": "Membre (Apprentissage DevOps)",
+        "cedille_date": "Automne 2025",
+        "cedille_task_1": "Approfondir mes connaissances en DevOps et CI/CD.",
+        "cedille_task_2": "Collaborer sur des projets open-source.",
+        "cedille_task_3": "Participer aux ateliers techniques.",
+        "spc_title": "Services partagés Canada (SPC)",
+        "spc_role": "Stagiaire Analyste TI",
+        "spc_date": "Hiver 2024",
+        "spc_task_1": "Traduire des documents techniques.",
+        "spc_task_2": "Gestion et priorisation des demandes courriel.",
+        "spc_task_3": "Création de tableaux de bord Excel."
+    },
+    "Skills": {
+        "title": "Boite à outils"
+    },
+    "Projects": {
+        "title": "Mes Projets",
+        "context": {
+            "personnel": "Personnel",
+            "academic": "Académique"
+        },
+        "portfolio": {
+            "description": "Refonte complète de mon CV utilisant les dernières technologies web.",
+            "date": "Décembre 2025"
+        },
+        "steam": {
+            "description": "explorer un dataset Steam (prix, genres, évaluations) pour extraire des insights sur le marché du jeu vidéo.",
+            "date": "Automne 2025"
+        },
+        "velofacile": {
+            "description": "Projet académique pour développer un système de gestion de location de vélos pour une entreprise locale.",
+            "date": "Été 2025"
+        },
+        "nomauclature": {
+            "description": "Portfolio professionnel pour un graphiste.",
+            "date": "Automne 2024"
+        }
+    }
 }
