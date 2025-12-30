@@ -1,19 +1,14 @@
 "use client";
 
-import { Link, usePathname } from "@/i18n/routing";
+import { Link } from "@/i18n/routing";
 import { useLocale } from "next-intl";
 import { Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import LanguageSwitch from "./LanguageSwitch";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const pathname = usePathname();
   const locale = useLocale();
-
-  useEffect(() => {
-    setIsMenuOpen(false);
-  }, [pathname, locale]);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
