@@ -28,6 +28,17 @@ export default function ContactForm() {
                     <form action={formAction} className="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-md">
                         <h2 className="flex justify-center  text-2xl font-bold mb-6 text-cyan-800">{t("title")}</h2>
 
+                        <div className="sr-only" aria-hidden="true">
+                            <label htmlFor="company">Entreprise</label>
+                            <input
+                                type="text"
+                                name="company"
+                                id="company"
+                                tabIndex={-1}
+                                autoComplete="off"
+                            />
+                        </div>
+
                         <div className="mb-4">
                             <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
                                 {t("firstName")} <span className="text-red-500"> * </span></label>
@@ -39,6 +50,7 @@ export default function ContactForm() {
                             <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">
                                 {t("lastName")} <span className="text-red-500"> * </span></label>
                             <input type="text" name="lastName" placeholder={t("lastName_placeholder")} id="lastName" required className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500 text-slate-900" />
+                            {state.errors?.lastName && <p className="mt-1 text-red-600 text-sm">{state.errors.lastName[0]}</p>}
                         </div>
 
                         <div className="mb-4">
@@ -46,13 +58,15 @@ export default function ContactForm() {
                                 className="block text-sm font-medium text-gray-700 mb-1">
                                 {t("email")} <span className="text-red-500"> * </span></label>
                             <input type="email" name="email" placeholder={t("email_placeholder")} id="email" required className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500 text-slate-900" />
+                            {state.errors?.email && <p className="mt-1 text-red-600 text-sm">{state.errors.email[0]}</p>}
                         </div>
 
                         <div className="mb-4">
                             <label htmlFor="subject"
                                 className="block text-sm font-medium text-gray-700 mb-1">
                                 {t("subject")} <span className="text-red-500"> * </span></label>
-                            <input type="text" name="subject" id="subject" className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500 text-slate-900" />
+                            <input type="text" name="subject" id="subject" required className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500 text-slate-900" />
+                            {state.errors?.subject && <p className="mt-1 text-red-600 text-sm">{state.errors.subject[0]}</p>}
                         </div>
 
                         <div className="mb-4">
@@ -61,6 +75,7 @@ export default function ContactForm() {
                                 {t("message")}
                                 <span className="text-red-500"> * </span></label>
                             <textarea name="message" id="message" rows={5} required className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500 text-slate-900"></textarea>
+                            {state.errors?.message && <p className="mt-1 text-red-600 text-sm">{state.errors.message[0]}</p>}
                         </div>
 
                         <button

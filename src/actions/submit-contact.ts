@@ -4,8 +4,6 @@ import { z } from "zod";
 import { prisma } from "@/lib/prisma";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY!);
-
 const contactSchema = z.object({
     firstName: z.string().min(2, "Le prénom est requis"),
     lastName: z.string().min(2, "Le nom est requis"),
@@ -30,6 +28,15 @@ export async function submitContact(
     prevState: ContactState,
     formData: FormData
 ): Promise<ContactState> {
+    const honeypot = formData.get("company");
+    if (typeof honeypot === "string" && honeypot.trim().length > 0) {
+        return {
+            success: true,
+            errors: {},
+            message: "Message envoyé avec succès!",
+        };
+    }
+
     const rawData = {
         firstName: formData.get("firstName"),
         lastName: formData.get("lastName"),
@@ -69,20 +76,32 @@ export async function submitContact(
 
         console.log("Succès DB: Message sauvegardé");
 
-        await resend.emails.send({
-            from: "onboarding@resend.dev",
-            to: process.env.CONTACT_EMAIL!,
-            replyTo: result.data.email,
-            subject: `Contact: ${result.data.subject}`,
-            html: `
-                <h2>Nouveau message de contact</h2>
-                <p><strong>De:</strong> ${result.data.firstName} ${result.data.lastName}</p>
-                <p><strong>Email:</strong> ${result.data.email}</p>
-                <p><strong>Sujet:</strong> ${result.data.subject}</p>
-                <hr>
-                <p>${result.data.message}</p>
-            `,
-        });
+        const resendApiKey = process.env.RESEND_API_KEY;
+        const contactEmail = process.env.CONTACT_EMAIL;
+
+        if (resendApiKey && contactEmail) {
+            try {
+                const resend = new Resend(resendApiKey);
+                await resend.emails.send({
+                    from: "onboarding@resend.dev",
+                    to: contactEmail,
+                    replyTo: result.data.email,
+                    subject: `Contact: ${result.data.subject}`,
+                    html: `
+                        <h2>Nouveau message de contact</h2>
+                        <p><strong>De:</strong> ${result.data.firstName} ${result.data.lastName}</p>
+                        <p><strong>Email:</strong> ${result.data.email}</p>
+                        <p><strong>Sujet:</strong> ${result.data.subject}</p>
+                        <hr>
+                        <p>${result.data.message}</p>
+                    `,
+                });
+            } catch (error) {
+                console.error("ERREUR EMAIL:", error);
+            }
+        } else {
+            console.warn("RESEND_API_KEY ou CONTACT_EMAIL manquant; email non envoyé.");
+        }
 
         return {
             success: true,
