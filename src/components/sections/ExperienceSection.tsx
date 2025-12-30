@@ -69,7 +69,7 @@ export default function ExperienceSection() {
             </div>
 
             <ul className="space-y-3">
-              {[tExp("spc_task_1"), tExp("spc_task_2"), tExp("spc_task_3")].map((item, i) => (
+              {[tExp("spc_task_1"), tExp("spc_task_2"), tExp("spc_task_3"), tExp("spc_task_4"), tExp("spc_task_5")].map((item, i) => (
                 <li key={i} className="flex items-start gap-3 text-slate-600">
                   <span className="mt-2 w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0"></span>
                   {item}

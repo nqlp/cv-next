@@ -34,10 +34,19 @@
         "spc_date": "Winter 2024",
         "spc_task_1": "Translating technical documents.",
         "spc_task_2": "Managing and prioritizing email requests.",
-        "spc_task_3": "Creating Excel dashboards."
+        "spc_task_3": "Creating Excel dashboards.",
+        "spc_task_4": "Executing quality assurance processes to validate document compliance before distribution.",
+        "spc_task_5": "Updating Excel files."
     },
     "Skills": {
-        "title": "Toolbox"
+        "title": "Toolbox",
+        "categories": {
+            "languages": "Languages",
+            "web": "Web",
+            "devops_tools": "DevOps & Tools",
+            "data": "Data",
+            "other": "Other"
+        }
     },
     "Projects": {
         "title": "My Projects",

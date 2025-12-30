@@ -34,14 +34,15 @@ export default function HeroSection() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 pt-4">
-          <Link
+          <a
             href="/Paul_Nguyen_CV.pdf"
             target="_blank"
-            className="w-full sm:w-auto flex items-center justify-center gap-2 bg-slate-900 text-white px-8 py-4 rounded-full font-bold hover:bg-blue-700 transition-all shadow-xl hover:-translate-y-1"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 bg-cyan-500 text-white px-8 py-3 rounded-full transition hover:bg-cyan-600"
           >
             <Download size={20} />
             {tHero("download_cv")}
-          </Link>
+          </a>
           <Link
             href="/contact"
             className="w-full sm:w-auto group flex items-center justify-center gap-2 text-slate-700 font-bold px-8 py-4 rounded-full border border-slate-200 hover:border-cyan-500 hover:text-cyan-600 transition-all bg-white cursor-pointer"

@@ -31,9 +31,9 @@ export default function SkillsSection() {
           viewport={{ once: true, amount: 0.2 }}
         >
           {skillCategories.map((category) => (
-            <motion.div key={category.title} variants={itemVariants} className="space-y-4">
+            <motion.div key={category.key} variants={itemVariants} className="space-y-4">
               <h3 className="font-bold text-slate-900 flex items-center gap-2">
-                <span className={category.iconColor}>{category.icon}</span> {category.title}
+                <span className={category.iconColor}>{category.icon}</span> {tSkills(`categories.${category.key}`)}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {category.skills.map(skill => (

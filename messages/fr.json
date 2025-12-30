@@ -32,12 +32,21 @@
         "spc_title": "Services partagés Canada (SPC)",
         "spc_role": "Stagiaire Analyste TI",
         "spc_date": "Hiver 2024",
-        "spc_task_1": "Traduire des documents techniques.",
-        "spc_task_2": "Gestion et priorisation des demandes courriel.",
-        "spc_task_3": "Création de tableaux de bord Excel."
+        "spc_task_1": "Traduire des documents techniques et administratifs entre l'anglais et le français.",
+        "spc_task_2": "Gérer la boite de courriel, incluant le tri et prioriser les demandes.",
+        "spc_task_3": "Produire des graphiques et des tableaux de bord Excel.",
+        "spc_task_4": "Exécuter des processus d'assurance qualité pour valider la conformité des documents avant diffusion.",
+        "spc_task_5": "Effectuer la mise à jour des fichiers Excel."
     },
     "Skills": {
-        "title": "Boite à outils"
+        "title": "Boite à outils",
+        "categories": {
+            "languages": "Langages",
+            "web": "Web",
+            "devops_tools": "DevOps & Outils",
+            "data": "Données",
+            "other": "Autres"
+        }
     },
     "Projects": {
         "title": "Mes Projets",
