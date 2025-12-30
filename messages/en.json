@@ -29,6 +29,7 @@
         "cedille_task_1": "Deepening knowledge in DevOps and CI/CD.",
         "cedille_task_2": "Collaborating on open-source projects.",
         "cedille_task_3": "Participating in technical workshops.",
+        "cedille_link": "https://github.com.ClubCedille",
         "spc_title": "Shared Services Canada (SSC)",
         "spc_role": "IT Analyst Intern",
         "spc_date": "Winter 2024",
@@ -42,10 +43,11 @@
         "title": "Toolbox",
         "categories": {
             "languages": "Languages",
-            "web": "Web",
-            "devops_tools": "DevOps & Tools",
-            "data": "Data",
-            "other": "Other"
+            "web": "Web & Frontend",
+            "backend": "Backend & API",
+            "data": "Databases & Data",
+            "devops": "DevOps & Cloud",
+            "tools": "Tools & Collaboration"
         }
     },
     "Projects": {

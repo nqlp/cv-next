@@ -20,7 +20,12 @@ import {
     SiC,
     SiOracle,
     SiHtml5,
+    SiVercel,
+    SiGoogledocs,
+    SiGooglesheets,
+    SiGoogleslides,
 } from "react-icons/si";
+import { VscVscode } from "react-icons/vsc";
 import { IconType } from "react-icons";
 import { FaJava, FaFileWord, FaFileExcel, FaFilePowerpoint } from "react-icons/fa";
 
@@ -52,6 +57,11 @@ export const techConfig: Record<string, { icon: IconType; color: string }> = {
     "Microsoft Excel": { icon: FaFileExcel, color: "text-[#217346]" },
     "Microsoft Word": { icon: FaFileWord, color: "text-[#2B579A]" },
     "Microsoft PowerPoint": { icon: FaFilePowerpoint, color: "text-[#D24726]" },
+    "Vercel": { icon: SiVercel, color: "text-black" },
+    "Google Docs": { icon: SiGoogledocs, color: "text-[#4285F4]" },
+    "Google Sheets": { icon: SiGooglesheets, color: "text-[#0F9D58]" },
+    "Google Slides": { icon: SiGoogleslides, color: "text-[#F4B400]" },
+    "VS Code": { icon: VscVscode, color: "text-[#007ACC]" },
 };
 
 interface TechBadgeProps {

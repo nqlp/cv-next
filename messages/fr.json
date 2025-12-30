@@ -29,6 +29,7 @@
         "cedille_task_1": "Approfondir mes connaissances en DevOps et CI/CD.",
         "cedille_task_2": "Collaborer sur des projets open-source.",
         "cedille_task_3": "Participer aux ateliers techniques.",
+        "cedille_link": "https://github.com.ClubCedille",
         "spc_title": "Services partagés Canada (SPC)",
         "spc_role": "Stagiaire Analyste TI",
         "spc_date": "Hiver 2024",
@@ -42,10 +43,11 @@
         "title": "Boite à outils",
         "categories": {
             "languages": "Langages",
-            "web": "Web",
-            "devops_tools": "DevOps & Outils",
-            "data": "Données",
-            "other": "Autres"
+            "web": "Web & Frontend",
+            "backend": "Backend & API",
+            "data": "Bases de données & Data",
+            "devops": "DevOps & Cloud",
+            "tools": "Outils & Collaboration"
         }
     },
     "Projects": {
