@@ -1,4 +1,8 @@
 {
+    "Meta": {
+        "title": "Paul Nguyen - Étudiant en Génie Logiciel",
+        "description": "Portfolio de Paul Nguyen, étudiant en Génie Logiciel à l'École de technologie supérieure (ÉTS) à Montréal, Québec."
+    },
     "Hero": {
         "greeting": "Salut, je suis",
         "role_prefix": "Étudiant en",
@@ -75,6 +79,7 @@
     },
     "Contact": {
         "title": "Entrons en contact",
+        "button_text": "Contactez Moi",
         "firstName": "Prénom",
         "lastName": "Nom",
         "firstName_placeholder": "Entrer votre prénom",

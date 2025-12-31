@@ -1,4 +1,8 @@
 {
+    "Meta": {
+        "title": "Paul Nguyen - Software Engineering Student",
+        "description": "Portfolio of Paul Nguyen, a Software Engineering student at École de technologie supérieure (ETS) in Montreal, Quebec."
+    },
     "Hero": {
         "greeting": "Hi, I'm",
         "role_prefix": "Student in",
@@ -16,7 +20,7 @@
         "cegep_school": "Cégep de Rosemont",
         "cegep_degree": "Natural Sciences",
         "cegep_period": "2017 — 2020",
-        "cegep_description": "Program focused on pure and applied sciences, with a strong foundation in mathematics, physics, and chemistry."
+        "cegep_description": "Program focused on pure and applied sciences, with a strong foundation in mathematics, physics and chemistry."
     },
     "Location": {
         "title": "Montreal, Quebec"
@@ -75,6 +79,7 @@
     },
     "Contact": {
         "title": "Get in Touch",
+        "button_text": "Contact Me",
         "firstName": "First name",
         "lastName": "Last name",
         "firstName_placeholder": "Enter your first name",

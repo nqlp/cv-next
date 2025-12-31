@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getMessages, getTranslations } from "next-intl/server";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -16,20 +16,29 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Paul Nguyen | Étudiant en Génie Logiciel @ ÉTS Montréal",
-  description: "Portfolio de Paul Nguyen, étudiant à l'ÉTS et développeur passionné par React, Python et le DevOps. Découvrez mes projets et mes expériences en TI.",
-  keywords: ["Paul Nguyen", "ÉTS Montréal", "Génie Logiciel", "Club Cédille", "nqlp"],
-  authors: [{ name: "Paul Nguyen" }],
-  openGraph: {
-    title: "Paul Nguyen - Portfolio",
-    description: "Futur ingénieur logiciel passionné par le développement web et l'architecture logicielle.",
-    // url: "https://ton-site.com",
-    siteName: "Paul Nguyen Portfolio",
-    locale: "fr_CA",
-    type: "website",
-  },
-};
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Meta" });
+
+  return {
+    title: t("title"),
+    description: t("description"),
+    keywords: ["Paul Nguyen", "ÉTS Montréal", "Génie Logiciel", "Club Cédille", "nqlp"],
+    authors: [{ name: "Paul Nguyen" }],
+    openGraph: {
+      title: "Paul Nguyen - Portfolio",
+      description: "Futur ingénieur logiciel passionné par le développement web et l'architecture logicielle.",
+      url: "https://paulnguyen.vercel.app/",
+      siteName: "Paul Nguyen Portfolio",
+      locale: "fr_CA",
+      type: "website",
+    },
+  };
+}
 
 export default async function RootLayout({
   children,
