@@ -74,14 +74,14 @@ export default function TechBadge({ name, className = "" }: TechBadgeProps) {
     if (config) {
         const Icon = config.icon;
         return (
-            <div className={`flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-md transition-transform hover:-translate-y-0.5 ${className}`}>
+            <div className={`flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-md transition-transform hover:-translate-y-0.5 ${className}`}>
                 <Icon className={`text-lg ${config.color}`} />
-                <span className="text-xs font-bold text-slate-700">{name}</span>
+                <span className="text-xs font-bold text-slate-700 dark:text-slate-200">{name}</span>
             </div>
         );
     }
     return (
-        <span className={`text-xs px-3 py-1.5 rounded-md bg-gray-100 text-gray-700 border border-gray-200 font-medium ${className}`}>
+        <span className={`text-xs px-3 py-1.5 rounded-md bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-slate-200 border border-gray-200 dark:border-slate-700 font-medium ${className}`}>
             #{name}
         </span>
     );

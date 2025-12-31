@@ -10,14 +10,14 @@ export default function ProjectsSection() {
   const tProjects = useTranslations("Projects");
 
   return (
-    <section id="projects" className="py-24 bg-slate-50 px-6 border-t border-slate-200">
+    <section id="projects" className="py-24 bg-slate-50 dark:bg-slate-950 px-6 border-t border-slate-200 dark:border-slate-800">
       <div className="max-w-6xl mx-auto">
         <motion.h2
           variants={titleVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="text-3xl font-extrabold mb-12 text-slate-900 flex items-center gap-3"
+          className="text-3xl font-extrabold mb-12 text-slate-900 dark:text-slate-100 flex items-center gap-3"
         >
           <span className="bg-cyan-600 w-2 h-8 rounded-full"></span>
           {tProjects("title")}

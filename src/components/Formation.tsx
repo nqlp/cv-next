@@ -43,14 +43,14 @@ export default function Formation() {
         }
     ]
     return (
-        <section id="formation" className="py-24 bg-slate-50 px-6">
+        <section id="formation" className="py-24 bg-slate-50 dark:bg-slate-950 px-6">
             <div className="max-w-6xl mx-auto">
                 <motion.h2
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="text-3xl font-extrabold mb-12 text-slate-900 flex items-center gap-3"
+                    className="text-3xl font-extrabold mb-12 text-slate-900 dark:text-slate-100 flex items-center gap-3"
                 >
                     <span className="bg-cyan-600 w-2 h-8 rounded-full"></span>
                     {t("title")}
@@ -67,23 +67,23 @@ export default function Formation() {
                         <motion.div
                             key={index}
                             variants={itemVariants}
-                            className={`bg-white p-6 rounded-2xl shadow-sm border-t-4 ${item.color} hover:shadow-md transition-shadow`}
+                            className={`bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-sm border-t-4 ${item.color} hover:shadow-md transition-shadow`}
                         >
                             <div className="flex items-center gap-4 mb-4">
-                                <div className="p-3 bg-slate-50 rounded-xl">
+                                <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl">
                                     {item.icon}
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-lg text-slate-900 leading-tight">{item.school}</h3>
+                                    <h3 className="font-bold text-lg text-slate-900 dark:text-slate-100 leading-tight">{item.school}</h3>
                                     <p className="text-cyan-600 font-medium text-sm">{item.degree}</p>
                                 </div>
                             </div>
 
-                            <p className="text-slate-600 text-sm mb-4 leading-relaxed">
+                            <p className="text-slate-600 dark:text-slate-300 text-sm mb-4 leading-relaxed">
                                 {item.description}
                             </p>
 
-                            <div className="flex items-center gap-2 text-slate-400 text-xs font-bold uppercase tracking-wider">
+                            <div className="flex items-center gap-2 text-slate-400 dark:text-slate-500 text-xs font-bold uppercase tracking-wider">
                                 <BookOpen size={14} />
                                 {item.period}
                             </div>
