@@ -76,14 +76,14 @@ export default function HeroSection() {
           <a
             href="https://github.com/nqlp"
             target="_blank"
-            className="p-3 text-slate-500 dark:text-slate-300 hover:text-white hover:bg-slate-900 rounded-full transition-all"
+            className="p-3 text-slate-500 dark:text-slate-300 hover:text-white hover:bg-cyan-600 rounded-full transition-all"
             title="GitHub"
           >
             <FaGithub size={22} />
           </a>
           <a
             href="https://www.linkedin.com/in/nqlpaul/"
-            className="p-3 text-slate-500 dark:text-slate-300 hover:text-white hover:bg-[#0077b5] rounded-full transition-all"
+            className="p-3 text-slate-500 dark:text-slate-300 hover:text-white hover:bg-cyan-600 rounded-full transition-all"
             title="LinkedIn"
           >
             <FaLinkedin size={22} />

@@ -100,7 +100,7 @@ export async function submitContact(
                 console.error("ERREUR EMAIL:", error);
             }
         } else {
-            console.warn("RESEND_API_KEY ou CONTACT_EMAIL manquant; email non envoyé.");
+            console.warn("RESEND_API_KEY ou CONTACT_EMAIL manquant: email non envoyé.");
         }
 
         return {
