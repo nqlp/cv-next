@@ -25,6 +25,7 @@ export default function ContactForm() {
                         <p className="text-slate-700">{t("success_message")}</p>
                     </div>
                 ) : (
+                    /* Honeypot field to prevent spam */
                     <form action={formAction} className="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-md">
                         <h2 className="flex justify-center  text-2xl font-bold mb-6 text-cyan-800">{t("title")}</h2>
 
