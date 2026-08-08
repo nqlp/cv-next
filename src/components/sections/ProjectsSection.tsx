@@ -1,10 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
-import ProjectCard from "../ProjectCard";
-import { projects } from "../../data/projects";
-import { containerVariants, itemVariants, titleVariants } from "../../lib/motion";
+import ProjectCard from "@/components/ui/ProjectCard";
+import SectionHeading from "@/components/ui/SectionHeading";
+import { projects } from "@/data/projects";
+import { containerVariants, itemVariants } from "@/lib/motion";
 
 export default function ProjectsSection() {
   const tProjects = useTranslations("Projects");
@@ -12,16 +13,7 @@ export default function ProjectsSection() {
   return (
     <section id="projects" className="py-24 bg-slate-50 dark:bg-slate-950 px-6 border-t border-slate-200 dark:border-slate-800">
       <div className="max-w-6xl mx-auto">
-        <motion.h2
-          variants={titleVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="text-3xl font-extrabold mb-12 text-slate-900 dark:text-slate-100 flex items-center gap-3"
-        >
-          <span className="bg-cyan-600 w-2 h-8 rounded-full"></span>
-          {tProjects("title")}
-        </motion.h2>
+        <SectionHeading>{tProjects("title")}</SectionHeading>
 
         <motion.div
           className="grid md:grid-cols-2 lg:grid-cols-2 gap-8"
@@ -39,6 +31,7 @@ export default function ProjectsSection() {
                 tags={project.tags}
                 link={project.link}
                 context={tProjects(`context.${project.context}`)}
+                linkLabel={tProjects("view_on_github")}
               />
             </motion.div>
           ))}

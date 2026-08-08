@@ -1,34 +1,42 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
+import { useTranslations } from "next-intl";
 
+const BUTTON_CLASS =
+    "p-2 rounded-full bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600";
+
+/**
+ * Two buttons, one visible at a time, with the switch driven entirely by CSS (`dark:`).
+ *
+ * Deliberately stateless: the real theme is unknown during server rendering, so any
+ * `useState` would produce either a hydration mismatch or an icon and `aria-label`
+ * frozen at the SSR value. Here each button carries its own correct label, and
+ * `display:none` removes the hidden one from the accessibility tree — screen readers
+ * announce exactly one button, always the right one.
+ */
 export default function ThemeToggle() {
-    const getInitialTheme = () => {
-        if (typeof window === "undefined") return false;
-        const storedTheme = localStorage.getItem("theme");
-        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        return storedTheme ? storedTheme === "dark" : prefersDark;
-    };
-
-    const [isDarkMode, setIsDarkMode] = useState(getInitialTheme);
-
-    useEffect(() => {
-        document.documentElement.classList.toggle("dark", isDarkMode);
-        document.body.classList.toggle("dark", isDarkMode);
-        document.documentElement.style.colorScheme = isDarkMode ? "dark" : "light";
-        localStorage.setItem("theme", isDarkMode ? "dark" : "light");
-    }, [isDarkMode]);
+    const t = useTranslations("Nav");
+    const { setTheme } = useTheme();
 
     return (
-        <button
-            type="button"
-            onClick={() => setIsDarkMode((prev) => !prev)}
-            aria-label={isDarkMode ? "Activer le mode clair" : "Activer le mode sombre"}
-            aria-pressed={isDarkMode}
-            className="p-2 rounded-full bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition"
-            suppressHydrationWarning
-        >
-            {isDarkMode ? "🌞" : "🌙"}
-        </button>
+        <>
+            <button
+                type="button"
+                onClick={() => setTheme("dark")}
+                aria-label={t("theme_to_dark")}
+                className={`${BUTTON_CLASS} dark:hidden`}
+            >
+                🌙
+            </button>
+            <button
+                type="button"
+                onClick={() => setTheme("light")}
+                aria-label={t("theme_to_light")}
+                className={`${BUTTON_CLASS} hidden dark:inline-block`}
+            >
+                🌞
+            </button>
+        </>
     );
 }

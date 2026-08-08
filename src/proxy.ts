@@ -4,5 +4,7 @@ import { routing } from "./i18n/routing";
 export default createMiddleware(routing);
 
 export const config = {
-    matcher: ['/', '/(fr|en)/:path*']
+    // Everything except /api, /_next, /_vercel and static files (which contain a dot).
+    // The `.*\..*` clause keeps /Paul_Nguyen_CV.pdf and /caricature.jpg from being redirected.
+    matcher: '/((?!api|_next|_vercel|.*\\..*).*)'
 };

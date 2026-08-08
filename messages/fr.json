@@ -1,7 +1,21 @@
 {
     "Meta": {
         "title": "Paul Nguyen - Étudiant en Génie Logiciel",
-        "description": "Portfolio de Paul Nguyen, étudiant en Génie Logiciel à l'École de technologie supérieure (ÉTS) à Montréal, Québec."
+        "description": "Portfolio de Paul Nguyen, étudiant en Génie Logiciel à l'École de technologie supérieure (ÉTS) à Montréal, Québec.",
+        "og_locale": "fr_CA"
+    },
+    "Nav": {
+        "home": "Accueil",
+        "formation": "Formation",
+        "experiences": "Expériences",
+        "projects": "Projets",
+        "contact": "Contact",
+        "open_menu": "Ouvrir le menu",
+        "close_menu": "Fermer le menu",
+        "skip_to_content": "Aller au contenu principal",
+        "theme_to_dark": "Activer le mode sombre",
+        "theme_to_light": "Activer le mode clair",
+        "switch_language": "Passer à l'anglais"
     },
     "Hero": {
         "greeting": "Salut, je suis",
@@ -9,7 +23,12 @@
         "role_highlight": "Génie Logiciel à l'ÉTS",
         "description": "Passionné par l'architecture robuste et l'expérience utilisateur fluide.",
         "download_cv": "Télécharger CV",
-        "contact_me": "Me contacter"
+        "contact_me": "Me contacter",
+        "avatar_alt": "Portrait de Paul Nguyen",
+        "github_aria": "Profil GitHub de Paul Nguyen",
+        "linkedin_aria": "Profil LinkedIn de Paul Nguyen",
+        "email_aria": "Envoyer un courriel à Paul Nguyen",
+        "phone_aria": "Appeler Paul Nguyen"
     },
     "Formation": {
         "title": "Formation",
@@ -33,7 +52,8 @@
         "cedille_task_1": "Approfondir mes connaissances en DevOps et CI/CD.",
         "cedille_task_2": "Collaborer sur des projets open-source.",
         "cedille_task_3": "Participer aux ateliers techniques.",
-        "cedille_link": "https://github.com.ClubCedille",
+        "cedille_link": "https://github.com/ClubCedille",
+        "cedille_link_label": "Club Cédille sur GitHub",
         "spc_title": "Services partagés Canada (SPC)",
         "spc_role": "Stagiaire Analyste TI",
         "spc_date": "Hiver 2024",
@@ -56,6 +76,7 @@
     },
     "Projects": {
         "title": "Mes Projets",
+        "view_on_github": "Voir le projet sur GitHub",
         "context": {
             "personnel": "Personnel",
             "academic": "Académique"
@@ -80,6 +101,8 @@
     "Contact": {
         "title": "Entrons en contact",
         "button_text": "Contactez Moi",
+        "meta_title": "Contact",
+        "meta_description": "Contactez Paul Nguyen, étudiant en Génie Logiciel à l'ÉTS à Montréal.",
         "firstName": "Prénom",
         "lastName": "Nom",
         "firstName_placeholder": "Entrer votre prénom",
@@ -92,6 +115,35 @@
         "sending": "Envoi en cours...",
         "success_message": "Votre message a été envoyé avec succès! Je vous répondrai dès que possible.",
         "error_message": "Une erreur est survenue lors de l'envoi de votre message. Veuillez réessayer plus tard.",
-        "thank_you": "Merci!"
+        "validation_message": "Veuillez corriger les erreurs ci-dessous.",
+        "thank_you": "Merci!",
+        "errors": {
+            "firstName_short": "Le prénom doit contenir au moins 2 caractères.",
+            "firstName_long": "Le prénom ne peut pas dépasser 60 caractères.",
+            "lastName_short": "Le nom doit contenir au moins 2 caractères.",
+            "lastName_long": "Le nom ne peut pas dépasser 60 caractères.",
+            "subject_required": "L'objet est requis.",
+            "subject_long": "L'objet ne peut pas dépasser 150 caractères.",
+            "email_invalid": "Adresse courriel invalide.",
+            "email_long": "L'adresse courriel est trop longue.",
+            "message_short": "Le message doit contenir au moins 10 caractères.",
+            "message_long": "Le message ne peut pas dépasser 4000 caractères."
+        }
+    },
+    "Footer": {
+        "rights": "Tous droits réservés",
+        "github_aria": "Profil GitHub de Paul Nguyen",
+        "linkedin_aria": "Profil LinkedIn de Paul Nguyen",
+        "email_aria": "Envoyer un courriel à Paul Nguyen"
+    },
+    "NotFound": {
+        "title": "Page introuvable",
+        "description": "La page que vous cherchez n'existe pas ou a été déplacée.",
+        "back_home": "Retour à l'accueil"
+    },
+    "Error": {
+        "title": "Une erreur est survenue",
+        "description": "Quelque chose s'est mal passé de notre côté. Réessayez dans un instant.",
+        "retry": "Réessayer"
     }
 }
