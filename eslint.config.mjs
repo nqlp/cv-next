@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Generated Prisma client: ESLint 9 flat config does not read .gitignore.
+    "src/generated/**",
   ]),
 ]);
 

@@ -1,27 +1,19 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
-import TechBadge from "../ui/TechBadge";
-import { skillCategories } from "../../data/skills";
-import { containerVariants, itemVariants, titleVariants } from "../../lib/motion";
+import TechBadge from "@/components/ui/TechBadge";
+import SectionHeading from "@/components/ui/SectionHeading";
+import { skillCategories } from "@/data/skills";
+import { containerVariants, itemVariants } from "@/lib/motion";
 
 export default function SkillsSection() {
   const tSkills = useTranslations("Skills");
 
   return (
-    <section className="py-24 bg-white dark:bg-slate-950 px-6">
+    <section id="skills" className="py-24 bg-white dark:bg-slate-950 px-6">
       <div className="max-w-6xl mx-auto">
-        <motion.h2
-          variants={titleVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="text-3xl font-extrabold mb-12 text-slate-900 dark:text-slate-100 flex items-center gap-3"
-        >
-          <span className="bg-cyan-600 w-2 h-8 rounded-full"></span>
-          {tSkills("title")}
-        </motion.h2>
+        <SectionHeading>{tSkills("title")}</SectionHeading>
 
         <motion.div
           className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
@@ -33,7 +25,8 @@ export default function SkillsSection() {
           {skillCategories.map((category) => (
             <motion.div key={category.key} variants={itemVariants} className="space-y-4">
               <h3 className="font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
-                <span className={category.iconColor}>{category.icon}</span> {tSkills(`categories.${category.key}`)}
+                <span className={category.iconColor} aria-hidden="true">{category.icon}</span>{" "}
+                {tSkills(`categories.${category.key}`)}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {category.skills.map(skill => (

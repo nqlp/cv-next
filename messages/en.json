@@ -1,7 +1,21 @@
 {
     "Meta": {
         "title": "Paul Nguyen - Software Engineering Student",
-        "description": "Portfolio of Paul Nguyen, a Software Engineering student at École de technologie supérieure (ETS) in Montreal, Quebec."
+        "description": "Portfolio of Paul Nguyen, a Software Engineering student at École de technologie supérieure (ETS) in Montreal, Quebec.",
+        "og_locale": "en_CA"
+    },
+    "Nav": {
+        "home": "Home",
+        "formation": "Education",
+        "experiences": "Experience",
+        "projects": "Projects",
+        "contact": "Contact",
+        "open_menu": "Open menu",
+        "close_menu": "Close menu",
+        "skip_to_content": "Skip to main content",
+        "theme_to_dark": "Switch to dark mode",
+        "theme_to_light": "Switch to light mode",
+        "switch_language": "Switch to French"
     },
     "Hero": {
         "greeting": "Hi, I'm",
@@ -9,7 +23,12 @@
         "role_highlight": "Software Engineering at ETS",
         "description": "Passionate about robust architecture and seamless user experience.",
         "download_cv": "Download CV",
-        "contact_me": "Contact me"
+        "contact_me": "Contact me",
+        "avatar_alt": "Portrait of Paul Nguyen",
+        "github_aria": "Paul Nguyen's GitHub profile",
+        "linkedin_aria": "Paul Nguyen's LinkedIn profile",
+        "email_aria": "Email Paul Nguyen",
+        "phone_aria": "Call Paul Nguyen"
     },
     "Formation": {
         "title": "Education",
@@ -33,7 +52,8 @@
         "cedille_task_1": "Deepening knowledge in DevOps and CI/CD.",
         "cedille_task_2": "Collaborating on open-source projects.",
         "cedille_task_3": "Participating in technical workshops.",
-        "cedille_link": "https://github.com.ClubCedille",
+        "cedille_link": "https://github.com/ClubCedille",
+        "cedille_link_label": "Club Cédille on GitHub",
         "spc_title": "Shared Services Canada (SSC)",
         "spc_role": "IT Analyst Intern",
         "spc_date": "Winter 2024",
@@ -56,6 +76,7 @@
     },
     "Projects": {
         "title": "My Projects",
+        "view_on_github": "View project on GitHub",
         "context": {
             "personnel": "Personal",
             "academic": "Academic"
@@ -80,6 +101,8 @@
     "Contact": {
         "title": "Get in Touch",
         "button_text": "Contact Me",
+        "meta_title": "Contact",
+        "meta_description": "Get in touch with Paul Nguyen, a Software Engineering student at ETS in Montreal.",
         "firstName": "First name",
         "lastName": "Last name",
         "firstName_placeholder": "Enter your first name",
@@ -92,6 +115,35 @@
         "sending": "Sending...",
         "success_message": "Your message has been sent successfully! I will get back to you as soon as possible.",
         "error_message": "There was an error sending your message. Please try again.",
-        "thank_you": "Thank you!"
+        "validation_message": "Please fix the errors below.",
+        "thank_you": "Thank you!",
+        "errors": {
+            "firstName_short": "First name must be at least 2 characters.",
+            "firstName_long": "First name cannot exceed 60 characters.",
+            "lastName_short": "Last name must be at least 2 characters.",
+            "lastName_long": "Last name cannot exceed 60 characters.",
+            "subject_required": "Subject is required.",
+            "subject_long": "Subject cannot exceed 150 characters.",
+            "email_invalid": "Invalid email address.",
+            "email_long": "Email address is too long.",
+            "message_short": "Message must be at least 10 characters.",
+            "message_long": "Message cannot exceed 4000 characters."
+        }
+    },
+    "Footer": {
+        "rights": "All rights reserved",
+        "github_aria": "Paul Nguyen's GitHub profile",
+        "linkedin_aria": "Paul Nguyen's LinkedIn profile",
+        "email_aria": "Email Paul Nguyen"
+    },
+    "NotFound": {
+        "title": "Page not found",
+        "description": "The page you are looking for does not exist or has been moved.",
+        "back_home": "Back to home"
+    },
+    "Error": {
+        "title": "Something went wrong",
+        "description": "An error occurred on our side. Please try again in a moment.",
+        "retry": "Try again"
     }
 }

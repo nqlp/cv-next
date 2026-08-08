@@ -1,120 +1,72 @@
 "use server";
 
 import { z } from "zod";
-import { prisma } from "@/lib/prisma";
 import { Resend } from "resend";
-
-const contactSchema = z.object({
-    firstName: z.string().min(2, "Le prénom est requis"),
-    lastName: z.string().min(2, "Le nom est requis"),
-    subject: z.string().min(1, "Le sujet est requis"),
-    email: z.email("Email invalide"),
-    message: z.string().min(1, "Le message est requis"),
-});
-
-export type ContactState = {
-    success: boolean;
-    errors: {
-        firstName?: string[];
-        lastName?: string[];
-        subject?: string[];
-        email?: string[];
-        message?: string[];
-    };
-    message: string;
-};
+import { prisma } from "@/lib/prisma";
+import { env } from "@/lib/env";
+import {
+    contactSchema,
+    type ContactState,
+} from "@/lib/validation/contact";
 
 export async function submitContact(
     prevState: ContactState,
     formData: FormData
 ): Promise<ContactState> {
+    // Honeypot: a bot fills every field, a human never sees this one.
+    // Fake a success, without writing to the database or sending anything.
     const honeypot = formData.get("company");
     if (typeof honeypot === "string" && honeypot.trim().length > 0) {
-        return {
-            success: true,
-            errors: {},
-            message: "Message envoyé avec succès!",
-        };
+        return { success: true, errors: {}, messageKey: "success_message" };
     }
 
-    const rawData = {
+    const result = contactSchema.safeParse({
         firstName: formData.get("firstName"),
         lastName: formData.get("lastName"),
         subject: formData.get("subject"),
         email: formData.get("email"),
         message: formData.get("message"),
-    };
-
-    const result = contactSchema.safeParse(rawData);
+    });
 
     if (!result.success) {
-        const fieldErrors = result.error.flatten().fieldErrors;
-
         return {
             success: false,
-            errors: {
-                firstName: fieldErrors.firstName,
-                lastName: fieldErrors.lastName,
-                subject: fieldErrors.subject,
-                email: fieldErrors.email,
-                message: fieldErrors.message,
-            },
-            message: "Veuillez corriger les erreurs ci-dessous.",
+            errors: z.flattenError(result.error).fieldErrors,
+            messageKey: "validation_message",
         };
     }
 
+    const data = result.data;
+
     try {
-        await prisma.contactMessage.create({
-            data: {
-                firstName: result.data.firstName,
-                lastName: result.data.lastName,
-                subject: result.data.subject,
-                email: result.data.email,
-                message: result.data.message,
-            },
-        });
+        await prisma.contactMessage.create({ data });
 
-        console.log("Succès DB: Message sauvegardé");
-
-        const resendApiKey = process.env.RESEND_API_KEY;
-        const contactEmail = process.env.CONTACT_EMAIL;
-
-        if (resendApiKey && contactEmail) {
-            try {
-                const resend = new Resend(resendApiKey);
-                await resend.emails.send({
-                    from: "onboarding@resend.dev",
-                    to: contactEmail,
-                    replyTo: result.data.email,
-                    subject: `Contact: ${result.data.subject}`,
-                    html: `
-                        <h2>Nouveau message de contact</h2>
-                        <p><strong>De:</strong> ${result.data.firstName} ${result.data.lastName}</p>
-                        <p><strong>Email:</strong> ${result.data.email}</p>
-                        <p><strong>Sujet:</strong> ${result.data.subject}</p>
-                        <hr>
-                        <p>${result.data.message}</p>
-                    `,
-                });
-            } catch (error) {
-                console.error("ERREUR EMAIL:", error);
-            }
-        } else {
-            console.warn("RESEND_API_KEY ou CONTACT_EMAIL manquant: email non envoyé.");
+        try {
+            const resend = new Resend(env.RESEND_API_KEY);
+            await resend.emails.send({
+                from: "onboarding@resend.dev",
+                to: env.CONTACT_EMAIL,
+                replyTo: data.email,
+                subject: `Contact: ${data.subject}`,
+                // Plain text on purpose: no user input is interpolated into HTML,
+                // so there is no injection surface in the recipient's inbox.
+                text: [
+                    `De: ${data.firstName} ${data.lastName}`,
+                    `Email: ${data.email}`,
+                    `Sujet: ${data.subject}`,
+                    "",
+                    data.message,
+                ].join("\n"),
+            });
+        } catch (error) {
+            // The message is already persisted, so a failed email must not fail the request.
+            console.error("ERREUR EMAIL:", error);
         }
 
-        return {
-            success: true,
-            errors: {},
-            message: "Message envoyé avec succès!",
-        };
+        return { success: true, errors: {}, messageKey: "success_message" };
     } catch (error) {
         console.error("ERREUR DB CRITIQUE:", error);
 
-        return {
-            success: false,
-            errors: {},
-            message: "Une erreur est survenue. Veuillez réessayer.",
-        };
+        return { success: false, errors: {}, messageKey: "error_message" };
     }
 }

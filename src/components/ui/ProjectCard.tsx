@@ -1,5 +1,6 @@
 import { FaGithub } from "react-icons/fa";
-import TechBadge from "./ui/TechBadge";
+import TechBadge from "./TechBadge";
+
 interface ProjectProps {
     title: string;
     description: string;
@@ -7,14 +8,15 @@ interface ProjectProps {
     tags: string[];
     link?: string;
     context: string;
+    linkLabel: string;
 }
 
-export default function ProjectCard({ title, description, date, tags, link, context }: ProjectProps) {
+export default function ProjectCard({ title, description, date, tags, link, context, linkLabel }: ProjectProps) {
     return (
         <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border-l-4 border-cyan-600 hover:shadow-md transition flex flex-col h-full">
             <div className="flex justify-between items-start mb-2">
                 <div>
-                    <span className="text-[10px] uppercase tracking-widest font-bold text-slate-400 dark:text-slate-500">
+                    <span className="text-[10px] uppercase tracking-widest font-bold text-slate-500 dark:text-slate-400">
                         {context}
                     </span>
                 </div>
@@ -30,8 +32,8 @@ export default function ProjectCard({ title, description, date, tags, link, cont
 
             {/* Tags / Badges */}
             <div className="flex flex-wrap gap-2 mb-4">
-                {tags.map((tag, index) => (
-                    <TechBadge key={index} name={tag} />
+                {tags.map((tag) => (
+                    <TechBadge key={tag} name={tag} />
                 ))}
             </div>
 
@@ -40,12 +42,12 @@ export default function ProjectCard({ title, description, date, tags, link, cont
                     href={link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-cyan-600 font-bold hover:text-cyan-800 transition-colors mt-auto self-end group"
-                    title="Voir le projet sur GitHub"
+                    className="inline-flex items-center gap-2 text-cyan-600 font-bold hover:text-cyan-800 transition-colors mt-auto self-end group rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"
+                    aria-label={`${linkLabel} — ${title}`}
                 >
                     <FaGithub size={24} className="transition-transform group-hover:scale-110" />
                 </a>
             )}
         </div>
-    )
+    );
 }

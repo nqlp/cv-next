@@ -1,46 +1,57 @@
-"use client";
-
-import { Link } from "@/i18n/routing";
-import { useLocale } from "next-intl";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { Mail } from "lucide-react";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/routing";
+import { AUTHOR_NAME, SOCIAL_LINKS } from "@/lib/site";
 import LanguageSwitch from "./LanguageSwitch";
 
-export default function Footer() {
-    const locale = useLocale();
+const ICON_LINK_CLASS =
+    "p-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-full transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400";
+
+export default async function Footer() {
+    // Server component: `getTranslations` replaces `useTranslations`, which keeps
+    // react-icons and lucide out of the client bundle.
+    const t = await getTranslations("Footer");
 
     return (
         <footer className="bg-slate-900 text-white py-12 px-6">
             <div className="max-w-6xl mx-auto">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-                    {/* Logo & Copyright */}
                     <div className="text-center md:text-left">
-                        <Link href="/" className="text-xl font-bold">
-                            Paul Nguyen
+                        <Link
+                            href="/"
+                            className="text-xl font-bold rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400"
+                        >
+                            {AUTHOR_NAME}
                         </Link>
                         <p className="text-slate-400 text-sm mt-2">
-                            © {new Date().getFullYear()} {locale === "fr" ? "Tous droits réservés" : "All rights reserved"}
+                            © {new Date().getFullYear()} {t("rights")}
                         </p>
                     </div>
 
                     <div className="flex items-center gap-4">
                         <a
-                            href="https://github.com/nqlp"
+                            href={SOCIAL_LINKS.github}
                             target="_blank"
-                            className="p-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-full transition-all"
+                            rel="noopener noreferrer"
+                            aria-label={t("github_aria")}
+                            className={ICON_LINK_CLASS}
                         >
                             <FaGithub size={20} />
                         </a>
                         <a
-                            href="https://www.linkedin.com/in/nqlpaul/"
+                            href={SOCIAL_LINKS.linkedin}
                             target="_blank"
-                            className="p-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-full transition-all"
+                            rel="noopener noreferrer"
+                            aria-label={t("linkedin_aria")}
+                            className={ICON_LINK_CLASS}
                         >
                             <FaLinkedin size={20} />
                         </a>
                         <a
-                            href="mailto:quang-long-paul.nguyen.1@etsmtl.ca"
-                            className="p-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-full transition-all"
+                            href={`mailto:${SOCIAL_LINKS.email}`}
+                            aria-label={t("email_aria")}
+                            className={ICON_LINK_CLASS}
                         >
                             <Mail size={20} />
                         </a>
@@ -49,5 +60,5 @@ export default function Footer() {
                 </div>
             </div>
         </footer>
-    )
+    );
 }
