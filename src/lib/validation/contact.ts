@@ -18,14 +18,22 @@ export const contactSchema = z.object({
         .trim()
         .min(2, "errors.lastName_short")
         .max(60, "errors.lastName_long"),
+    // The subject feeds an email header, so control characters are neutralised
+    // (\p{Cc} covers CR, LF, TAB…) rather than rejecting the submission outright.
+    //
+    // The transform runs BEFORE the length checks on purpose. `trim()` strips whitespace
+    // but not control characters, so validating first let a subject made only of, say,
+    // U+0001 clear `min(1)`; the transform then collapsed it to an empty string, and an
+    // empty subject reached the email header despite `errors.subject_required`.
     subject: z
         .string()
-        .trim()
-        .min(1, "errors.subject_required")
-        .max(150, "errors.subject_long")
-        // The subject feeds an email header, so control characters are neutralised
-        // (\p{Cc} covers CR, LF, TAB…) rather than rejecting the submission outright.
-        .transform((value) => value.replace(/\p{Cc}/gu, " ").trim()),
+        .transform((value) => value.replace(/\p{Cc}/gu, " ").trim())
+        .pipe(
+            z
+                .string()
+                .min(1, "errors.subject_required")
+                .max(150, "errors.subject_long")
+        ),
     email: z
         .email("errors.email_invalid")
         .max(254, "errors.email_long"),

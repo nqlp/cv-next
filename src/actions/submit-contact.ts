@@ -20,12 +20,22 @@ export async function submitContact(
         return { success: true, errors: {}, messageKey: "success_message" };
     }
 
+    // formData.get() returns null for a field that was never submitted, and a File for a
+    // multipart part. Zod answers either with its own English prose ("Invalid input:
+    // expected string, received null") instead of an i18n key — which the client would
+    // then hand to t(). Coercing to "" keeps every error a translatable key.
+    // Unreachable from the real form, trivially reachable from a scripted POST.
+    const field = (name: string) => {
+        const value = formData.get(name);
+        return typeof value === "string" ? value : "";
+    };
+
     const result = contactSchema.safeParse({
-        firstName: formData.get("firstName"),
-        lastName: formData.get("lastName"),
-        subject: formData.get("subject"),
-        email: formData.get("email"),
-        message: formData.get("message"),
+        firstName: field("firstName"),
+        lastName: field("lastName"),
+        subject: field("subject"),
+        email: field("email"),
+        message: field("message"),
     });
 
     if (!result.success) {
