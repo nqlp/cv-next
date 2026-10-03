@@ -17,9 +17,25 @@ type Experience = {
 export default function ExperienceSection() {
   const t = useTranslations("Experience");
 
-  // The two roles shared 25 lines of near-identical JSX: an array plus one card
-  // covers both, and adding a role becomes a single entry.
   const experiences: Experience[] = [
+    {
+      title: t("ezoko_title"),
+      role: t("ezoko_role"),
+      date: t("ezoko_date"),
+      tasks: [
+        t("ezoko_task_1"),
+        t("ezoko_task_2"),
+        t("ezoko_task_3"),
+        t("ezoko_task_4"),
+        t("ezoko_task_5"),
+        t("ezoko_task_6"),
+      ],
+      accent: {
+        border: "border-l-cyan-600 hover:border-l-cyan-500",
+        badge: "bg-cyan-50 dark:bg-cyan-950/30 text-cyan-800 dark:text-cyan-200",
+        bullet: "bg-cyan-500",
+      },
+    },
     {
       title: t("cedille_title"),
       role: t("cedille_role"),
