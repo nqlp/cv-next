@@ -17,12 +17,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      # Dummy values: no connection is made at build time, but src/lib/env.ts
-      # validates that these are present when the module loads.
-      DATABASE_URL: postgresql://user:pass@localhost:5432/db?schema=public
-      RESEND_API_KEY: re_ci_dummy_key
-      CONTACT_EMAIL: ci@example.com
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -30,8 +24,6 @@ jobs:
           node-version: "20"
           cache: "npm"
       - run: npm ci
-      # Must precede typecheck: src/lib/prisma.ts needs the generated client types.
-      - run: npx prisma generate
       # Cheapest first, so a failure reports fast and precisely.
       - run: npm run lint
       - run: npm run typecheck

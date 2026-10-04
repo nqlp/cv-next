@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import ContactForm from "@/components/contact/ContactForm";
+import { SOCIAL_LINKS } from "@/lib/site";
 import { routing } from "@/i18n/routing";
 
 export async function generateMetadata({
@@ -48,7 +48,15 @@ export default async function ContactPage({
             <h1 className="mb-8 text-center text-3xl font-extrabold text-slate-900 dark:text-slate-100">
                 {t("title")}
             </h1>
-            <ContactForm />
+            <div className="mx-auto max-w-lg rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm dark:border-slate-800 dark:bg-slate-900">
+                <p className="mb-6 text-slate-600 dark:text-slate-300">{t("description")}</p>
+                <a
+                    href={`mailto:${SOCIAL_LINKS.email}`}
+                    className="font-semibold text-cyan-700 underline underline-offset-4 break-all dark:text-cyan-300"
+                >
+                    {SOCIAL_LINKS.email}
+                </a>
+            </div>
         </div>
     );
 }

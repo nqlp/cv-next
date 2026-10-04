@@ -1,9 +1,7 @@
 import { getTranslations } from "next-intl/server";
-import { Link } from "@/i18n/routing";
+import { SOCIAL_LINKS } from "@/lib/site";
 
 export default async function ContactSection() {
-    // Server component: the CTA is a real <Link>, so crawlers follow it and it opens in
-    // a new tab — neither of which `router.push` inside a <button> allowed.
     const t = await getTranslations("Contact");
 
     return (
@@ -23,13 +21,13 @@ export default async function ContactSection() {
                             </p>
                         </div>
 
-                        <Link
-                            href="/contact"
+                        <a
+                            href={`mailto:${SOCIAL_LINKS.email}`}
                             className="group inline-flex items-center justify-center gap-3 rounded-full bg-slate-900 px-8 py-4 text-white font-semibold shadow-lg shadow-slate-900/20 transition-all hover:-translate-y-0.5 hover:bg-slate-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"
                         >
                             <span className="text-sm uppercase tracking-[0.2em]">{t("button_text")}</span>
                             <span className="h-2.5 w-2.5 rounded-full bg-cyan-400 transition-transform group-hover:translate-x-1"></span>
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </div>

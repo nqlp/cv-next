@@ -5,7 +5,6 @@ import { Mail, MapPin, Download, ChevronRight } from "lucide-react";
 import { FaGithub, FaLinkedin, FaPhone } from "react-icons/fa";
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/routing";
 import { SOCIAL_LINKS } from "@/lib/site";
 
 const SOCIAL_LINK_CLASS =
@@ -54,13 +53,13 @@ export default function HeroSection() {
             <Download size={20} aria-hidden="true" />
             {tHero("download_cv")}
           </a>
-          <Link
-            href="/contact"
+          <a
+            href={`mailto:${SOCIAL_LINKS.email}`}
             className="w-full sm:w-auto group flex items-center justify-center gap-2 text-slate-700 dark:text-slate-200 font-bold px-8 py-4 rounded-full border border-slate-200 dark:border-slate-700 hover:border-cyan-500 hover:text-cyan-600 transition-all bg-white dark:bg-slate-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"
           >
             {tHero("contact_me")}
             <ChevronRight size={18} aria-hidden="true" className="transition-transform group-hover:translate-x-1" />
-          </Link>
+          </a>
         </div>
       </motion.div>
 

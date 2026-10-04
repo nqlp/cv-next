@@ -109,35 +109,10 @@
     },
     "Contact": {
         "title": "Entrons en contact",
-        "button_text": "Contactez Moi",
+        "button_text": "M’écrire par courriel",
         "meta_title": "Contact",
         "meta_description": "Contactez Paul Nguyen, étudiant en Génie Logiciel à l'ÉTS à Montréal.",
-        "firstName": "Prénom",
-        "lastName": "Nom",
-        "firstName_placeholder": "Entrer votre prénom",
-        "lastName_placeholder": "Entrer votre nom",
-        "email": "Courriel",
-        "email_placeholder": "Entrer votre courriel",
-        "subject": "Objet",
-        "message": "Message",
-        "send": "Envoyer le message",
-        "sending": "Envoi en cours...",
-        "success_message": "Votre message a été envoyé avec succès! Je vous répondrai dès que possible.",
-        "error_message": "Une erreur est survenue lors de l'envoi de votre message. Veuillez réessayer plus tard.",
-        "validation_message": "Veuillez corriger les erreurs ci-dessous.",
-        "thank_you": "Merci!",
-        "errors": {
-            "firstName_short": "Le prénom doit contenir au moins 2 caractères.",
-            "firstName_long": "Le prénom ne peut pas dépasser 60 caractères.",
-            "lastName_short": "Le nom doit contenir au moins 2 caractères.",
-            "lastName_long": "Le nom ne peut pas dépasser 60 caractères.",
-            "subject_required": "L'objet est requis.",
-            "subject_long": "L'objet ne peut pas dépasser 150 caractères.",
-            "email_invalid": "Adresse courriel invalide.",
-            "email_long": "L'adresse courriel est trop longue.",
-            "message_short": "Le message doit contenir au moins 10 caractères.",
-            "message_long": "Le message ne peut pas dépasser 4000 caractères."
-        }
+        "description": "Pour une opportunité ou une question, écrivez-moi directement par courriel."
     },
     "Footer": {
         "rights": "Tous droits réservés",

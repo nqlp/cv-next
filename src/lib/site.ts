@@ -11,6 +11,6 @@ export const AUTHOR_NAME = "Paul Nguyen";
 export const SOCIAL_LINKS = {
     github: "https://github.com/nqlp",
     linkedin: "https://www.linkedin.com/in/nqlpaul/",
-    email: "quang-long-paul.nguyen.1@etsmtl.ca",
+    email: "quang-long-paul.nguyen.1@ens.etsmtl.ca",
     phone: "+15149127740",
 } as const;
