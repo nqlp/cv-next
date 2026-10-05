@@ -72,6 +72,12 @@ Le projet utilise **GitHub Actions** pour garantir la stabilité du code à chaq
 * **Tests :** Suite Vitest.
 * **Build :** Test de compilation pour prévenir les erreurs en production.
 
+### Maintenance des dépendances
+
+Dependabot vérifie les dépendances npm et les actions GitHub chaque lundi à 9 h (heure de Toronto), avec au maximum trois PR de mises à jour de versions ouvertes par écosystème. Les correctifs et versions mineures sont regroupés : production et développement séparément pour npm, et un groupe pour les actions. Les versions majeures restent dans des PR individuelles.
+
+Les alertes et mises à jour de sécurité se configurent dans les paramètres de sécurité du dépôt GitHub ; les correctifs de sécurité sont indépendants des groupes de versions et du calendrier hebdomadaire. La fusion reste manuelle après réussite de la CI. Pour une mise à jour de l'interface, vérifier aussi les pages FR/EN, le thème et les animations sur la prévisualisation Vercel disponible.
+
 ---
 
 *Fait avec ❤️ par Paul Nguyen — Étudiant en Génie Logiciel à l'ÉTS.*
@@ -151,6 +157,12 @@ This project uses **GitHub Actions** to ensure code stability with every push:
 * **Type-check:** Strict TypeScript type validation (`tsc --noEmit`).
 * **Tests:** Vitest suite.
 * **Build:** Compilation test to prevent production errors.
+
+### Dependency maintenance
+
+Dependabot checks npm dependencies and GitHub Actions every Monday at 9 a.m. (Toronto time), with at most three open version-update PRs per ecosystem. Patch and minor updates are grouped: production and development separately for npm, and one group for actions. Major updates remain in individual PRs.
+
+Security alerts and updates are configured in the GitHub repository's security settings; security fixes are independent of the version-update groups and weekly schedule. Merging remains manual after CI passes. For UI updates, also check the FR/EN pages, theme, and animations on the available Vercel preview.
 
 ---
 
