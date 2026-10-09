@@ -11,7 +11,7 @@ export default function SkillsSection() {
   const tSkills = useTranslations("Skills");
 
   return (
-    <section id="skills" className="py-24 bg-white dark:bg-slate-950 px-6">
+    <section id="skills" className="py-12 md:py-24 bg-white dark:bg-slate-950 px-4 md:px-6">
       <div className="max-w-6xl mx-auto">
         <SectionHeading>{tSkills("title")}</SectionHeading>
 

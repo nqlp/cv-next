@@ -68,7 +68,7 @@ export default function ExperienceSection() {
   ];
 
   return (
-    <section id="experiences" className="py-24 bg-white dark:bg-slate-950 px-6">
+    <section id="experiences" className="py-12 md:py-24 bg-white dark:bg-slate-950 px-4 md:px-6">
       <div className="max-w-6xl mx-auto">
         <SectionHeading accentClass="bg-blue-600">{t("title")}</SectionHeading>
 
@@ -83,7 +83,7 @@ export default function ExperienceSection() {
             <motion.article
               key={experience.title}
               variants={itemVariants}
-              className={`group bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 border-l-4 hover:shadow-xl transition-all ${experience.accent.border}`}
+              className={`group bg-white dark:bg-slate-900 p-5 md:p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 border-l-4 hover:shadow-xl transition-all ${experience.accent.border}`}
             >
               <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-4">
                 <div>

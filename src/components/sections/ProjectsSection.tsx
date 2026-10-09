@@ -11,7 +11,7 @@ export default function ProjectsSection() {
   const tProjects = useTranslations("Projects");
 
   return (
-    <section id="projects" className="py-24 bg-slate-50 dark:bg-slate-950 px-6 border-t border-slate-200 dark:border-slate-800">
+    <section id="projects" className="py-12 md:py-24 bg-slate-50 dark:bg-slate-950 px-4 md:px-6 border-t border-slate-200 dark:border-slate-800">
       <div className="max-w-6xl mx-auto">
         <SectionHeading>{tProjects("title")}</SectionHeading>
 

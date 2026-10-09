@@ -29,7 +29,7 @@ export default function Formation() {
     ];
 
     return (
-        <section id="formation" className="py-24 bg-slate-50 dark:bg-slate-950 px-6">
+        <section id="formation" className="py-12 md:py-24 bg-slate-50 dark:bg-slate-950 px-4 md:px-6">
             <div className="max-w-6xl mx-auto">
                 <SectionHeading>{t("title")}</SectionHeading>
 
@@ -44,10 +44,10 @@ export default function Formation() {
                         <motion.div
                             key={item.school}
                             variants={itemVariants}
-                            className={`bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-sm border-t-4 ${item.color} hover:shadow-md transition-shadow`}
+                            className={`bg-white dark:bg-slate-900 p-5 md:p-6 rounded-2xl shadow-sm border-t-4 ${item.color} hover:shadow-md transition-shadow`}
                         >
                             <div className="flex items-center gap-4 mb-4">
-                                <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl">
+                                <div className="shrink-0 p-3 bg-slate-50 dark:bg-slate-800 rounded-xl">
                                     {item.icon}
                                 </div>
                                 <div>
