@@ -39,7 +39,7 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800">
-      <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <nav className="max-w-6xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
         <Link
           href="/"
           className="text-xl font-bold text-slate-900 dark:text-slate-100 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-600"
@@ -48,7 +48,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-4 lg:gap-8">
           {NAV_LINKS.map((link) => (
             <Link key={link.key} href={link.href} className={LINK_CLASS}>
               {t(link.key)}
@@ -62,7 +62,7 @@ export default function Header() {
         <button
           ref={toggleRef}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden p-2 text-slate-600 dark:text-slate-300 rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"
+          className="md:hidden min-h-11 min-w-11 flex items-center justify-center p-2 text-slate-600 dark:text-slate-300 rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"
           aria-expanded={isMenuOpen}
           aria-controls="mobile-menu"
           aria-label={isMenuOpen ? t("close_menu") : t("open_menu")}
@@ -75,13 +75,13 @@ export default function Header() {
       {isMenuOpen && (
         <div
           id="mobile-menu"
-          className="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800 px-6 py-4 space-y-4 shadow-lg max-h-[70vh] overflow-y-auto"
+          className="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800 px-4 md:px-6 py-4 space-y-2 shadow-lg max-h-[calc(100dvh-5rem)] overflow-y-auto"
         >
           {NAV_LINKS.map((link) => (
             <Link
               key={link.key}
               href={link.href}
-              className={`block ${LINK_CLASS}`}
+              className={`flex min-h-11 items-center ${LINK_CLASS}`}
               onClick={() => setIsMenuOpen(false)}
             >
               {t(link.key)}

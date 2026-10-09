@@ -20,9 +20,9 @@ export default function SectionHeading({
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="text-3xl font-extrabold mb-12 text-slate-900 dark:text-slate-100 flex items-center gap-3"
+            className="text-3xl font-extrabold mb-6 md:mb-12 text-slate-900 dark:text-slate-100 flex items-center gap-3"
         >
-            <span className={`${accentClass} w-2 h-8 rounded-full`} />
+            <span className={`${accentClass} shrink-0 w-2 h-8 rounded-full`} />
             {children}
         </motion.h2>
     );
