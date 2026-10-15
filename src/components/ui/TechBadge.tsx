@@ -31,12 +31,12 @@ import { FaJava, FaFileWord, FaFileExcel, FaFilePowerpoint } from "react-icons/f
 
 export const techConfig: Record<string, { icon: IconType; color: string }> = {
     "Python": { icon: SiPython, color: "text-[#3776AB]" },
-    "Pandas": { icon: SiPandas, color: "text-[#150458]" },
-    "Matplotlib": { icon: SiPython, color: "text-[#11557C]" },
-    "React": { icon: SiReact, color: "text-[#61DAFB]" },
-    "Next.js": { icon: SiNextdotjs, color: "text-black" },
+    "Pandas": { icon: SiPandas, color: "text-[#150458] dark:text-indigo-300" },
+    "Matplotlib": { icon: SiPython, color: "text-[#11557C] dark:text-sky-300" },
+    "React": { icon: SiReact, color: "text-[#087EA4] dark:text-[#61DAFB]" },
+    "Next.js": { icon: SiNextdotjs, color: "text-slate-900 dark:text-slate-100" },
     "TypeScript": { icon: SiTypescript, color: "text-[#3178C6]" },
-    "JavaScript": { icon: SiJavascript, color: "text-[#F7DF1E]" },
+    "JavaScript": { icon: SiJavascript, color: "text-amber-700 dark:text-[#F7DF1E]" },
     "TailwindCSS": { icon: SiTailwindcss, color: "text-[#06B6D4]" },
     "SQL": { icon: SiPostgresql, color: "text-[#4169E1]" },
     "PostgreSQL": { icon: SiPostgresql, color: "text-[#336791]" },
@@ -46,18 +46,18 @@ export const techConfig: Record<string, { icon: IconType; color: string }> = {
     "Kubernetes": { icon: SiKubernetes, color: "text-[#326CE5]" },
     "Vite": { icon: SiVite, color: "text-[#646CFF]" },
     "Node.js": { icon: SiNodedotjs, color: "text-[#339933]" },
-    "Express": { icon: SiExpress, color: "text-black" },
+    "Express": { icon: SiExpress, color: "text-slate-900 dark:text-slate-100" },
     "Git": { icon: SiGit, color: "text-[#F05032]" },
     "GitHub Actions": { icon: SiGithubactions, color: "text-[#2088FF]" },
-    "Jira": { icon: SiJira, color: "text-[#0052CC]" },
+    "Jira": { icon: SiJira, color: "text-[#0052CC] dark:text-blue-300" },
     "Figma": { icon: SiFigma, color: "text-[#F24E1E]" },
-    "Java": { icon: FaJava, color: "text-[#007396]" },
+    "Java": { icon: FaJava, color: "text-[#007396] dark:text-sky-300" },
     "C": { icon: SiC, color: "text-[#A8B9CC]" },
     "HTML/CSS": { icon: SiHtml5, color: "text-[#E34C26]" },
     "Microsoft Excel": { icon: FaFileExcel, color: "text-[#217346]" },
     "Microsoft Word": { icon: FaFileWord, color: "text-[#2B579A]" },
     "Microsoft PowerPoint": { icon: FaFilePowerpoint, color: "text-[#D24726]" },
-    "Vercel": { icon: SiVercel, color: "text-black" },
+    "Vercel": { icon: SiVercel, color: "text-slate-900 dark:text-slate-100" },
     "Google Docs": { icon: SiGoogledocs, color: "text-[#4285F4]" },
     "Google Sheets": { icon: SiGooglesheets, color: "text-[#0F9D58]" },
     "Google Slides": { icon: SiGoogleslides, color: "text-[#F4B400]" },
@@ -74,14 +74,14 @@ export default function TechBadge({ name, className = "" }: TechBadgeProps) {
     if (config) {
         const Icon = config.icon;
         return (
-            <div className={`flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-md transition-transform hover:-translate-y-0.5 ${className}`}>
+            <div className={`tech-badge ${className}`}>
                 <Icon className={`text-lg ${config.color}`} />
-                <span className="text-xs font-bold text-slate-700 dark:text-slate-200">{name}</span>
+                <span className="tech-label">{name}</span>
             </div>
         );
     }
     return (
-        <span className={`text-xs px-3 py-1.5 rounded-md bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-slate-200 border border-gray-200 dark:border-slate-700 font-medium ${className}`}>
+        <span className={`tech-badge ${className}`}>
             #{name}
         </span>
     );

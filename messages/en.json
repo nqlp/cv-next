@@ -84,7 +84,7 @@
         }
     },
     "Projects": {
-        "title": "My Projects",
+        "title": "Selected work",
         "view_on_github": "View project on GitHub",
         "context": {
             "personnel": "Personal",
@@ -129,5 +129,23 @@
         "title": "Something went wrong",
         "description": "An error occurred on our side. Please try again in a moment.",
         "retry": "Try again"
+    },
+    "Design": {
+        "discipline": "Software engineering / Portfolio",
+        "headline": "Thoughtful interfaces.",
+        "headline_accent": "Dependable systems.",
+        "explore": "Explore my work",
+        "built_with_care": "Built with intention.",
+        "focus": "My core stack",
+        "projects_caption": "A selection of things I’ve built, explored and brought to life.",
+        "experience_caption": "Real systems. Practical problems. Measurable improvements.",
+        "skills_caption": "The tools behind the work.",
+        "education_caption": "A foundation in engineering and the sciences.",
+        "contact_headline": "Good software starts",
+        "contact_accent": "with a conversation.",
+        "experience_details": "Responsibilities & contributions",
+        "experience_intro": "From warehouse operations to public-sector IT, bringing care to the systems people rely on.",
+        "portrait_label": "The person behind the code",
+        "portrait_note": "Curiosity. Craft. Continuous learning."
     }
 }

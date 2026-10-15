@@ -1,10 +1,11 @@
 "use client";
 
+import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useTranslations } from "next-intl";
 
 const BUTTON_CLASS =
-    "min-h-11 min-w-11 p-2 rounded-full bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600";
+    "theme-toggle min-h-11 min-w-11";
 
 /**
  * Two buttons, one visible at a time, with the switch driven entirely by CSS (`dark:`).
@@ -27,7 +28,7 @@ export default function ThemeToggle() {
                 aria-label={t("theme_to_dark")}
                 className={`${BUTTON_CLASS} dark:hidden`}
             >
-                🌙
+                <Moon size={18} aria-hidden="true" />
             </button>
             <button
                 type="button"
@@ -35,7 +36,7 @@ export default function ThemeToggle() {
                 aria-label={t("theme_to_light")}
                 className={`${BUTTON_CLASS} hidden dark:inline-block`}
             >
-                🌞
+                <Sun size={18} aria-hidden="true" />
             </button>
         </>
     );

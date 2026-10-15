@@ -6,26 +6,35 @@ import TechBadge from "@/components/ui/TechBadge";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { skillCategories } from "@/data/skills";
 import { containerVariants, itemVariants } from "@/lib/motion";
+import { Code2, PanelsTopLeft, Plug, Database, Cloud, Wrench } from "lucide-react";
+
+const categoryIcons = {
+  languages: Code2, web: PanelsTopLeft, backend: Plug,
+  data: Database, devops: Cloud, tools: Wrench,
+};
 
 export default function SkillsSection() {
+  const d = useTranslations("Design");
   const tSkills = useTranslations("Skills");
 
   return (
-    <section id="skills" className="py-12 md:py-24 bg-white dark:bg-slate-950 px-4 md:px-6">
-      <div className="max-w-6xl mx-auto">
-        <SectionHeading>{tSkills("title")}</SectionHeading>
+    <section id="skills" className="content-section skills-section">
+      <div className="shell">
+        <SectionHeading number="03" caption={d("skills_caption")}>{tSkills("title")}</SectionHeading>
 
         <motion.div
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="skills-grid"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          {skillCategories.map((category) => (
-            <motion.div key={category.key} variants={itemVariants} className="space-y-4">
-              <h3 className="font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
-                <span className={category.iconColor} aria-hidden="true">{category.icon}</span>{" "}
+          {skillCategories.map((category) => {
+            const Icon = categoryIcons[category.key as keyof typeof categoryIcons];
+            return (
+            <motion.div key={category.key} variants={itemVariants} className="skill-category">
+              <h3 className="skill-title">
+                <Icon size={18} className="skill-icon" aria-hidden="true" />
                 {tSkills(`categories.${category.key}`)}
               </h3>
               <div className="flex flex-wrap gap-2">
@@ -34,7 +43,7 @@ export default function SkillsSection() {
                 ))}
               </div>
             </motion.div>
-          ))}
+          ); })}
         </motion.div>
       </div>
     </section>

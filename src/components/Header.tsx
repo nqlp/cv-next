@@ -8,14 +8,14 @@ import LanguageSwitch from "./LanguageSwitch";
 import ThemeToggle from "./ThemeToggle";
 
 const NAV_LINKS = [
-  { href: "/#formation", key: "formation" },
-  { href: "/#experiences", key: "experiences" },
   { href: "/#projects", key: "projects" },
+  { href: "/#experiences", key: "experiences" },
+  { href: "/#formation", key: "formation" },
   { href: "/contact", key: "contact" },
 ] as const;
 
 const LINK_CLASS =
-  "text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-colors rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-600";
+  "nav-link";
 
 export default function Header() {
   const t = useTranslations("Nav");
@@ -38,17 +38,17 @@ export default function Header() {
   }, [isMenuOpen]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800">
-      <nav className="max-w-6xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
+    <header className="site-header">
+      <nav className="shell header-inner">
         <Link
           href="/"
-          className="text-xl font-bold text-slate-900 dark:text-slate-100 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-600"
+          className="wordmark"
         >
-          Paul N.
+          <span className="brand-mark">pn<span>↗</span></span><span>Paul Nguyen</span>
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-4 lg:gap-8">
+        <div className="hidden md:flex items-center gap-4 lg:gap-7">
           {NAV_LINKS.map((link) => (
             <Link key={link.key} href={link.href} className={LINK_CLASS}>
               {t(link.key)}
@@ -75,7 +75,7 @@ export default function Header() {
       {isMenuOpen && (
         <div
           id="mobile-menu"
-          className="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800 px-4 md:px-6 py-4 space-y-2 shadow-lg max-h-[calc(100dvh-5rem)] overflow-y-auto"
+          className="mobile-menu md:hidden"
         >
           {NAV_LINKS.map((link) => (
             <Link
