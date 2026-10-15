@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { SOCIAL_LINKS } from "@/lib/site";
 import { routing } from "@/i18n/routing";
+import { ArrowUpRight, ArrowLeft } from "lucide-react";
+import { Link } from "@/i18n/routing";
 
 export async function generateMetadata({
     params,
@@ -44,17 +46,19 @@ export default async function ContactPage({
     const t = await getTranslations({ locale, namespace: "Contact" });
 
     return (
-        <div className="min-h-screen bg-slate-50 dark:bg-slate-950 px-4 pt-28 pb-16">
-            <h1 className="mb-8 text-center text-3xl font-extrabold text-slate-900 dark:text-slate-100">
+        <div className="contact-page shell">
+            <Link href="/" className="contact-back" aria-label={locale === "fr" ? "Retour à l’accueil" : "Back to home"}><ArrowLeft size={18} />Paul Nguyen</Link>
+            <h1>
                 {t("title")}
             </h1>
-            <div className="mx-auto max-w-lg rounded-2xl border border-slate-200 bg-white p-5 md:p-8 text-center shadow-sm dark:border-slate-800 dark:bg-slate-900">
-                <p className="mb-6 text-slate-600 dark:text-slate-300">{t("description")}</p>
+            <div className="contact-page-card">
+                <p>{t("description")}</p>
                 <a
                     href={`mailto:${SOCIAL_LINKS.email}`}
-                    className="inline-flex min-h-11 items-center font-semibold text-cyan-700 underline underline-offset-4 break-all dark:text-cyan-300"
+                    className="contact-page-email"
                 >
                     {SOCIAL_LINKS.email}
+                    <ArrowUpRight size={24} aria-hidden="true" />
                 </a>
             </div>
         </div>

@@ -84,7 +84,7 @@
         }
     },
     "Projects": {
-        "title": "Mes Projets",
+        "title": "Projets choisis",
         "view_on_github": "Voir le projet sur GitHub",
         "context": {
             "personnel": "Personnel",
@@ -129,5 +129,23 @@
         "title": "Une erreur est survenue",
         "description": "Quelque chose s'est mal passé de notre côté. Réessayez dans un instant.",
         "retry": "Réessayer"
+    },
+    "Design": {
+        "discipline": "Génie logiciel / Portfolio",
+        "headline": "Des interfaces réfléchies.",
+        "headline_accent": "Des systèmes fiables.",
+        "explore": "Explorer mes projets",
+        "built_with_care": "Chaque détail compte.",
+        "focus": "Mes outils clés",
+        "projects_caption": "Une sélection de projets conçus, explorés et concrétisés.",
+        "experience_caption": "Des systèmes concrets. Des améliorations mesurables.",
+        "skills_caption": "Les outils derrière les projets.",
+        "education_caption": "Des bases en génie et en sciences.",
+        "contact_headline": "Un bon logiciel commence",
+        "contact_accent": "par une conversation.",
+        "experience_details": "Responsabilités et contributions",
+        "experience_intro": "De la logistique au secteur public, une attention particulière aux systèmes dont les gens dépendent.",
+        "portrait_label": "Derrière le code",
+        "portrait_note": "Curiosité. Rigueur. Apprentissage continu."
     }
 }

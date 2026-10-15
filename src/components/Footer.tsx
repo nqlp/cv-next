@@ -14,8 +14,8 @@ export default async function Footer() {
     const t = await getTranslations("Footer");
 
     return (
-        <footer className="bg-slate-900 text-white py-12 px-6">
-            <div className="max-w-6xl mx-auto">
+        <footer className="site-footer">
+            <div className="shell">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-8">
                     <div className="text-center md:text-left">
                         <Link
