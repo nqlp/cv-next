@@ -54,6 +54,8 @@ export async function generateMetadata({
       template: `%s | ${AUTHOR_NAME}`,
     },
     description,
+    // The site already follows the system theme and has its own theme switch.
+    other: { "darkreader-lock": "true" },
     keywords: ["Paul Nguyen", "ÉTS Montréal", "Génie Logiciel", "Club Cédille", "nqlp"],
     authors: [{ name: AUTHOR_NAME }],
     alternates: {
