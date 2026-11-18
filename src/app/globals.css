@@ -25,7 +25,8 @@
   --accent-soft: #1a2d50;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+/* Keep the viewport painted with the active theme during route and theme changes. */
+html { background-color: var(--paper); scroll-behavior: smooth; }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font-geist-sans), sans-serif; }
 ::selection { background: #c5d5ff; color: #11275f; }
 a, button, summary { -webkit-tap-highlight-color: transparent; }

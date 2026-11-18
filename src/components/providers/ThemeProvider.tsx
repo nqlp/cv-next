@@ -1,11 +1,28 @@
 "use client";
 
-import { ThemeProvider as NextThemesProvider } from "next-themes";
+import { ThemeProvider as NextThemesProvider, useTheme } from "next-themes";
+import { useLayoutEffect } from "react";
+
+function RestoreThemeBeforePaint() {
+    const { resolvedTheme } = useTheme();
+
+    useLayoutEffect(() => {
+        if (resolvedTheme !== "dark" && resolvedTheme !== "light") return;
+
+        const root = document.documentElement;
+        if (root.classList.contains("dark") || root.classList.contains("light")) return;
+
+        // React can clear <html> attributes when the locale layout remounts.
+        root.classList.add(resolvedTheme);
+        root.style.colorScheme = resolvedTheme;
+    }, [resolvedTheme]);
+
+    return null;
+}
 
 /**
  * Wraps next-themes' provider so a server layout can render it.
- * next-themes injects a blocking script before hydration: no white flash, and a single
- * theme state shared by every ThemeToggle instance.
+ * next-themes initializes the theme before hydration and shares it across toggles.
  */
 export default function ThemeProvider({ children }: { children: React.ReactNode }) {
     return (
@@ -15,6 +32,7 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
             enableSystem
             disableTransitionOnChange
         >
+            <RestoreThemeBeforePaint />
             {children}
         </NextThemesProvider>
     );

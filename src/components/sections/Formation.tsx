@@ -1,10 +1,8 @@
 "use client";
 
 import { GraduationCap, BookOpen } from "lucide-react";
-import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { containerVariants, itemVariants } from "@/lib/motion";
 
 export default function Formation() {
     const d = useTranslations("Design");
@@ -12,6 +10,7 @@ export default function Formation() {
 
     const educationData = [
         {
+            id: "ets",
             school: t("ets_school"),
             degree: t("ets_degree"),
             period: t("ets_period"),
@@ -19,6 +18,7 @@ export default function Formation() {
             icon: <GraduationCap size={32} className="text-current" />,
         },
         {
+            id: "cegep",
             school: t("cegep_school"),
             degree: t("cegep_degree"),
             period: t("cegep_period"),
@@ -32,17 +32,10 @@ export default function Formation() {
             <div className="shell">
                 <SectionHeading number="04" caption={d("education_caption")}>{t("title")}</SectionHeading>
 
-                <motion.div
-                    className="grid md:grid-cols-2 gap-8"
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.2 }}
-                >
+                <div className="grid md:grid-cols-2 gap-8">
                     {educationData.map((item) => (
-                        <motion.div
-                            key={item.school}
-                            variants={itemVariants}
+                        <div
+                            key={item.id}
                             className="education-card"
                         >
                             <div className="flex items-center gap-4 mb-4">
@@ -63,9 +56,9 @@ export default function Formation() {
                                 <BookOpen size={14} />
                                 {item.period}
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
-                </motion.div>
+                </div>
             </div>
         </section>
     );
