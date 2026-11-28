@@ -12,6 +12,7 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "test:smoke": "node --test tests/production.smoke.mjs",
     "test:watch": "vitest"
   },
   "dependencies": {
