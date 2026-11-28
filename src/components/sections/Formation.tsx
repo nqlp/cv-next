@@ -1,12 +1,12 @@
-"use client";
-
 import { GraduationCap, BookOpen } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import SectionHeading from "@/components/ui/SectionHeading";
 
-export default function Formation() {
-    const d = useTranslations("Design");
-    const t = useTranslations("Formation");
+export default async function Formation() {
+    const [d, t] = await Promise.all([
+        getTranslations("Design"),
+        getTranslations("Formation"),
+    ]);
 
     const educationData = [
         {

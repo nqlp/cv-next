@@ -3,11 +3,10 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import { Analytics } from "@vercel/analytics/next";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ThemeProvider from "@/components/providers/ThemeProvider";
-import MotionProvider from "@/components/providers/MotionProvider";
 import { routing } from "@/i18n/routing";
 import { AUTHOR_NAME, SITE_NAME, SITE_URL, SOCIAL_LINKS } from "@/lib/site";
 import "../globals.css";
@@ -98,7 +97,10 @@ export default async function RootLayout({
   // Required in every layout and page for static rendering to be possible.
   setRequestLocale(locale);
 
-  const t = await getTranslations({ locale, namespace: "Nav" });
+  const [t, { Nav, Error }] = await Promise.all([
+    getTranslations({ locale, namespace: "Nav" }),
+    getMessages({ locale }),
+  ]);
 
   const personJsonLd = {
     "@context": "https://schema.org",
@@ -129,18 +131,16 @@ export default async function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
         <ThemeProvider>
-          <NextIntlClientProvider>
-            <MotionProvider>
-              <a
-                href="#main-content"
-                className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-full focus:bg-cyan-600 focus:px-5 focus:py-3 focus:text-white focus:font-semibold"
-              >
-                {t("skip_to_content")}
-              </a>
-              <Header />
-              <main id="main-content">{children}</main>
-              <Footer />
-            </MotionProvider>
+          <NextIntlClientProvider messages={{ Nav, Error }}>
+            <a
+              href="#main-content"
+              className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-full focus:bg-cyan-600 focus:px-5 focus:py-3 focus:text-white focus:font-semibold"
+            >
+              {t("skip_to_content")}
+            </a>
+            <Header />
+            <main id="main-content">{children}</main>
+            <Footer />
           </NextIntlClientProvider>
         </ThemeProvider>
         <Analytics />

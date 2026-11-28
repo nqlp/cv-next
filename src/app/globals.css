@@ -100,23 +100,24 @@ section[id] { scroll-margin-top: 100px; }
 .project-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px #12234a0c; }
 .project-cover { height: 245px; position: relative; overflow: hidden; display: grid; place-items: center; }
 .cover-index { position: absolute; left: 20px; top: 17px; font: 11px var(--font-geist-mono), monospace; opacity: .65; }
-.cover-0 { background: #234bd0; color: #f2f5ff; }
-.cover-0::before, .cover-0::after { content: ""; position: absolute; width: 300px; height: 300px; border: 1px solid #ffffff25; border-radius: 50%; right: -100px; top: -130px; }
-.cover-0::after { width: 380px; height: 380px; right: -140px; top: -170px; }
+.project-cover--default { background: var(--paper); color: var(--muted); }
+.project-cover--portfolio { background: #234bd0; color: #f2f5ff; }
+.project-cover--portfolio::before, .project-cover--portfolio::after { content: ""; position: absolute; width: 300px; height: 300px; border: 1px solid #ffffff25; border-radius: 50%; right: -100px; top: -130px; }
+.project-cover--portfolio::after { width: 380px; height: 380px; right: -140px; top: -170px; }
 .cover-portfolio > span { font-size: 100px; font-weight: 500; letter-spacing: -.1em; line-height: 1.1; }
 .cover-portfolio > span > span { font-size: 47px; margin-left: 20px; vertical-align: top; }
 .cover-portfolio > div { display: flex; align-items: center; gap: 12px; font: 10px var(--font-geist-mono), monospace; letter-spacing: .15em; margin-top: 20px; }
-.cover-1 { background: #142b48; color: #b2d7ff; }
+.project-cover--steam { background: #142b48; color: #b2d7ff; }
 .cover-data { width: 75%; }
 .chart-bars { height: 165px; display: flex; align-items: end; justify-content: center; gap: 8px; border-bottom: 1px solid #ffffff30; background: repeating-linear-gradient(to top, transparent 0 40px, #ffffff08 40px 41px); }
 .chart-bars span { flex: 1; max-width: 24px; background: linear-gradient(#7db9ee, #275584); border-radius: 3px 3px 0 0; }
 .cover-data > span { display: flex; align-items: center; justify-content: space-between; margin-top: 17px; font: 10px var(--font-geist-mono), monospace; letter-spacing: .07em; }
-.cover-2 { background: #dce9e4; color: #284b3c; }
+.project-cover--velofacile { background: #dce9e4; color: #284b3c; }
 .cover-bike { display: flex; align-items: center; gap: 26px; position: relative; }
 .cover-bike > span:last-child { font-size: 30px; letter-spacing: -.07em; font-weight: 500; }
 .cover-bike > span > span { display: block; font-size: 24px; text-align: right; }
 .bike-orbit { position: absolute; width: 200px; height: 200px; left: -48px; border: 1px solid #284b3c20; border-radius: 50%; }
-.cover-3 { background: #eee3d9; color: #554335; }
+.project-cover--nomauclature { background: #eee3d9; color: #554335; }
 .cover-type { display: flex; gap: 50px; align-items: center; }
 .cover-type > span:first-child { font-family: Georgia, serif; font-size: 53px; line-height: .95; letter-spacing: -.07em; }
 .type-star { color: #a44a2f; font-size: 90px; }
@@ -137,8 +138,8 @@ section[id] { scroll-margin-top: 100px; }
 .experience-date { font: 12px/1.7 var(--font-geist-mono), monospace; }
 .experience-content h3 { font-weight: 550; font-size: 24px; letter-spacing: -.04em; }
 .experience-role { margin-top: 5px; color: var(--accent); font-size: 14px; }
-.experience-row:first-child .experience-role { color: #247456; }
-.dark .experience-row:first-child .experience-role { color: #7dd7b5; }
+.experience-row[data-featured] .experience-role { color: #247456; }
+.dark .experience-row[data-featured] .experience-role { color: #7dd7b5; }
 .experience-summary { margin: 18px 0; font-size: 14px; line-height: 1.85; color: var(--muted); }
 .experience-details summary { display: flex; align-items: center; justify-content: space-between; cursor: pointer; min-height: 44px; font-size: 12px; font-weight: 550; border-top: 1px solid var(--line); gap: 15px; }
 .experience-details summary::-webkit-details-marker { display: none; }
@@ -240,6 +241,7 @@ section[id] { scroll-margin-top: 100px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  .hero-copy, .hero-feature, .projects-grid > *, .skills-grid > * { transform: none !important; }
 }
 /* Keep the personal portrait caption clear of its floating note. */
 .portrait-caption { padding-bottom: 18px; }

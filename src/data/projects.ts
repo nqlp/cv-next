@@ -4,9 +4,8 @@ export enum ProjectType {
 }
 
 export interface Project {
+    id: string;
     title: string;
-    description: string;
-    date: string;
     sortDate: Date;
     tags: string[];
     link?: string;
@@ -15,36 +14,32 @@ export interface Project {
 
 export const projects: Project[] = [
     {
+        id: "portfolio",
         title: "Portfolio Next.js",
         sortDate: new Date("2025-12-01"),
-        date: "portfolio.date",
-        description: "portfolio.description",
         tags: ["Next.js", "TypeScript", "TailwindCSS"],
         link: "https://github.com/nqlp/cv-next",
         context: ProjectType.Personnel,
     },
     {
+        id: "steam",
         title: "Steam Data Analysis",
-        date: "steam.date",
         sortDate: new Date("2025-09-01"),
-        description: "steam.description",
         tags: ["Python", "Pandas", "SQL"],
         link: "https://github.com/nqlp/steam-data-analysis",
         context: ProjectType.Personnel,
     },
     {
+        id: "velofacile",
         title: "VéloFacile",
-        date: "velofacile.date",
         sortDate: new Date("2025-06-01"),
-        description: "velofacile.description",
         tags: ["React", "TypeScript", "TailwindCSS", "Vite"],
         context: ProjectType.Academique,
     },
     {
+        id: "nomauclature",
         title: "Nomàuclature",
-        date: "nomauclature.date",
         sortDate: new Date("2025-01-01"),
-        description: "nomauclature.description",
         tags: ["React", "Vite", "TypeScript"],
         link: "https://github.com/Orchydae/nomauclature",
         context: ProjectType.Personnel,

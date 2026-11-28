@@ -5,6 +5,7 @@ import ExperienceSection from "@/components/sections/ExperienceSection";
 import SkillsSection from "@/components/sections/SkillsSection";
 import ProjectsSection from "@/components/sections/ProjectsSection";
 import ContactSection from "@/components/sections/ContactSection";
+import MotionProvider from "@/components/providers/MotionProvider";
 
 export default async function Home({
   params,
@@ -15,14 +16,15 @@ export default async function Home({
   setRequestLocale(locale);
 
   return (
-    <div className="portfolio-page">
-      <HeroSection />
-
-      <ProjectsSection />
-      <ExperienceSection />
-      <SkillsSection />
-      <Formation />
-      <ContactSection />
-    </div>
+    <MotionProvider>
+      <div className="portfolio-page">
+        <HeroSection />
+        <ProjectsSection />
+        <ExperienceSection />
+        <SkillsSection />
+        <Formation />
+        <ContactSection />
+      </div>
+    </MotionProvider>
   );
 }

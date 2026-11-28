@@ -1,17 +1,8 @@
 export const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.2 },
-  },
+  entered: { transition: { staggerChildren: 0.2 } },
 };
 
+// Starting the keyframes in the browser leaves the prerendered content in place.
 export const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-};
-
-export const titleVariants = {
-  hidden: { opacity: 0, x: -20 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
+  entered: { y: [30, 0], transition: { duration: 0.6 } },
 };

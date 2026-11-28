@@ -1,20 +1,21 @@
-"use client";
 import Image from "next/image";
 import { ArrowDown, ArrowUpRight, Download, MapPin } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { motion } from "motion/react";
-import { useTranslations } from "next-intl";
+import * as motion from "motion/react-client";
+import { getTranslations } from "next-intl/server";
 import { SOCIAL_LINKS } from "@/lib/site";
 
-export default function HeroSection() {
-  const t = useTranslations("Hero");
-  const location = useTranslations("Location");
-  const d = useTranslations("Design");
+export default async function HeroSection() {
+  const [t, location, d] = await Promise.all([
+    getTranslations("Hero"),
+    getTranslations("Location"),
+    getTranslations("Design"),
+  ]);
   return (
     <section className="hero shell">
       <div className="hero-eyebrow eyebrow"><span className="status-dot" /> {d("discipline")} <span className="hero-location"><MapPin size={13} />{location("title")}</span></div>
       <div className="hero-grid">
-        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65 }} className="hero-copy">
+        <motion.div animate={{ y: [16, 0] }} transition={{ duration: 0.65 }} className="hero-copy">
           <h1>Paul<span>Nguyen<span className="name-period">.</span></span></h1>
           <p className="hero-statement">{d("headline")}<br /><span>{d("headline_accent")}</span></p>
           <p className="hero-description">{t("role_prefix")} <strong>{t("role_highlight")}</strong>. {t("description")}</p>
@@ -28,7 +29,7 @@ export default function HeroSection() {
             <span className="hero-social-note">{d("built_with_care")}</span>
           </div>
         </motion.div>
-        <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }} className="hero-feature">
+        <motion.div animate={{ y: [24, 0] }} transition={{ duration: 0.8, delay: 0.1 }} className="hero-feature">
           <div className="portrait-top"><span className="eyebrow">{d("portrait_label")}</span><span className="portrait-spark" aria-hidden="true">✳</span></div>
           <div className="portrait-frame"><Image src="/caricature.jpg" alt={t("avatar_alt")} fill sizes="(max-width: 767px) 90vw, 450px" className="portrait-image" priority /></div>
           <div className="portrait-caption"><span>Paul Nguyen<span>{location("title")}</span></span><span className="portrait-code" aria-hidden="true">&lt;/&gt;</span></div>
